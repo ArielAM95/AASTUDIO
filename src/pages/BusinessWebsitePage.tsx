@@ -1,8 +1,10 @@
-
+import React from "react";
 import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import ContactForm from "@/components/ContactForm";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const BusinessWebsitePage = () => {
   const handleContactClick = () => {
@@ -14,24 +16,9 @@ const BusinessWebsitePage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-white to-purple-50">
-      {/* Header */}
-      <header className="py-6 px-4">
-        <div className="container mx-auto max-w-6xl">
-          <div className="flex justify-between items-center">
-            <a href="/" className="text-custom-purple font-bold text-xl">
-              עמוד ראשי
-            </a>
-            <button
-              onClick={handleContactClick}
-              className="bg-custom-purple hover:bg-opacity-90 text-white font-medium py-2 px-4 rounded-lg flex items-center gap-2 transition-all"
-            >
-              צור קשר
-              <ArrowLeft size={16} className="rtl:rotate-180" />
-            </button>
-          </div>
-        </div>
-      </header>
-
+      {/* Navbar */}
+      <Navbar />
+      
       {/* Hero Section */}
       <section className="py-12 md:py-20 px-4">
         <div className="container mx-auto max-w-6xl">
@@ -139,14 +126,7 @@ const BusinessWebsitePage = () => {
       <ContactForm />
 
       {/* Footer */}
-      <footer className="py-8 px-4 bg-gray-100">
-        <div className="container mx-auto max-w-6xl text-center">
-          <p className="text-gray-600">כל הזכויות שמורות © 2025</p>
-          <a href="/" className="text-custom-purple mt-2 inline-block">
-            חזרה לעמוד הראשי
-          </a>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };

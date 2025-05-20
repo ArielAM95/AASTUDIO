@@ -1,10 +1,11 @@
 
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+  const location = useLocation();
+  
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -12,6 +13,23 @@ const Navbar = () => {
   // Function to scroll to top when navigating to a new page
   const scrollToTop = () => {
     window.scrollTo(0, 0);
+  };
+
+  // Function to handle scrolling to sections or navigate to home page sections
+  const handleSectionClick = (sectionId: string) => {
+    if (location.pathname === "/") {
+      // If on home page, scroll to the section
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+        if (isMenuOpen) {
+          setIsMenuOpen(false);
+        }
+      }
+    } else {
+      // If not on home page, navigate to home page with section hash
+      window.location.href = `/#${sectionId}`;
+    }
   };
 
   return (
@@ -57,7 +75,14 @@ const Navbar = () => {
           
           {/* Desktop menu */}
           <div className="hidden md:flex gap-8">
-            <a href="#services" className="text-gray-700 hover:text-custom-purple font-medium transition-colors">
+            <a 
+              href="#" 
+              onClick={(e) => {
+                e.preventDefault();
+                handleSectionClick("services");
+              }} 
+              className="text-gray-700 hover:text-custom-purple font-medium transition-colors"
+            >
               שירותים
             </a>
             <Link to="/focused-landing-page" className="text-gray-700 hover:text-custom-purple font-medium transition-colors" onClick={scrollToTop}>
@@ -69,10 +94,24 @@ const Navbar = () => {
             <Link to="/business-app" className="text-gray-700 hover:text-custom-purple font-medium transition-colors" onClick={scrollToTop}>
               אפליקציה עסקית
             </Link>
-            <a href="#faq" className="text-gray-700 hover:text-custom-purple font-medium transition-colors">
+            <a 
+              href="#" 
+              onClick={(e) => {
+                e.preventDefault();
+                handleSectionClick("faq");
+              }} 
+              className="text-gray-700 hover:text-custom-purple font-medium transition-colors"
+            >
               שאלות נפוצות
             </a>
-            <a href="#contact" className="text-gray-700 hover:text-custom-purple font-medium transition-colors">
+            <a 
+              href="#" 
+              onClick={(e) => {
+                e.preventDefault();
+                handleSectionClick("contact");
+              }} 
+              className="text-gray-700 hover:text-custom-purple font-medium transition-colors"
+            >
               צור קשר
             </a>
           </div>
@@ -93,9 +132,12 @@ const Navbar = () => {
           <div className="mt-4 md:hidden">
             <div className="flex flex-col space-y-3 pb-3">
               <a
-                href="#services"
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleSectionClick("services");
+                }}
                 className="text-gray-700 hover:text-custom-purple font-medium py-2 transition-colors"
-                onClick={toggleMenu}
               >
                 שירותים
               </a>
@@ -130,16 +172,22 @@ const Navbar = () => {
                 אפליקציה עסקית
               </Link>
               <a
-                href="#faq"
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleSectionClick("faq");
+                }}
                 className="text-gray-700 hover:text-custom-purple font-medium py-2 transition-colors"
-                onClick={toggleMenu}
               >
                 שאלות נפוצות
               </a>
               <a
-                href="#contact"
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleSectionClick("contact");
+                }}
                 className="text-gray-700 hover:text-custom-purple font-medium py-2 transition-colors"
-                onClick={toggleMenu}
               >
                 צור קשר
               </a>

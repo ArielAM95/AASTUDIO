@@ -12,7 +12,13 @@ const Navbar = () => {
     <nav className="bg-white py-4 px-6 shadow-md sticky top-0 z-50">
       <div className="container mx-auto max-w-6xl">
         <div className="flex justify-between items-center">
-          <div className="text-2xl font-bold font-rubik text-custom-purple">Web<span className="text-custom-turquoise">Studio</span></div>
+          <div className="text-2xl font-bold font-rubik">
+            <img 
+              src="/lovable-uploads/009364ae-1b0c-4271-a068-88cc03111697.png" 
+              alt="Logo" 
+              className="h-10 w-auto"
+            />
+          </div>
           
           {/* Mobile menu button */}
           <button className="md:hidden" onClick={toggleMenu}>

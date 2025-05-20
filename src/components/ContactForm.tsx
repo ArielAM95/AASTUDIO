@@ -12,6 +12,7 @@ const ContactForm = () => {
     marketingConsent: false,
     privacyConsent: false,
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value, type } = e.target as HTMLInputElement;
@@ -23,7 +24,7 @@ const ContactForm = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     if (!formData.privacyConsent) {
@@ -35,21 +36,47 @@ const ContactForm = () => {
       return;
     }
     
-    // Here you would normally send the data to your backend
-    toast({
-      title: "הטופס נשלח בהצלחה",
-      description: "ניצור איתך קשר בהקדם",
-    });
+    // Set submitting state
+    setIsSubmitting(true);
     
-    // Reset form
-    setFormData({
-      fullName: "",
-      email: "",
-      phone: "",
-      message: "",
-      marketingConsent: false,
-      privacyConsent: false,
-    });
+    try {
+      // Send data to webhook
+      const response = await fetch("https://hook.eu2.make.com/9qwvtpc76ild1awatk3q2f1hebl43sbg", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+      
+      if (response.ok) {
+        toast({
+          title: "הטופס נשלח בהצלחה",
+          description: "ניצור איתך קשר בהקדם",
+        });
+        
+        // Reset form
+        setFormData({
+          fullName: "",
+          email: "",
+          phone: "",
+          message: "",
+          marketingConsent: false,
+          privacyConsent: false,
+        });
+      } else {
+        throw new Error("שגיאה בשליחת הטופס");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast({
+        title: "שגיאה",
+        description: "אירעה שגיאה בשליחת הטופס, אנא נסו שוב מאוחר יותר",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleWhatsApp = () => {
@@ -158,9 +185,10 @@ const ContactForm = () => {
             <div className="flex flex-col md:flex-row gap-4">
               <button
                 type="submit"
-                className="bg-custom-purple text-white py-3 px-6 rounded-lg font-medium hover:bg-opacity-90 transition-all flex-1"
+                disabled={isSubmitting}
+                className="bg-custom-purple text-white py-3 px-6 rounded-lg font-medium hover:bg-opacity-90 transition-all flex-1 disabled:opacity-70 disabled:cursor-not-allowed"
               >
-                שליחת טופס
+                {isSubmitting ? "שולח..." : "שליחת טופס"}
               </button>
               <button
                 type="button"

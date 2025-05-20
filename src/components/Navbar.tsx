@@ -1,5 +1,6 @@
 
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,11 +14,13 @@ const Navbar = () => {
       <div className="container mx-auto max-w-6xl">
         <div className="flex justify-between items-center">
           <div className="text-2xl font-bold font-rubik">
-            <img 
-              src="/lovable-uploads/009364ae-1b0c-4271-a068-88cc03111697.png" 
-              alt="Logo" 
-              className="h-10 w-auto"
-            />
+            <Link to="/">
+              <img 
+                src="/lovable-uploads/009364ae-1b0c-4271-a068-88cc03111697.png" 
+                alt="Logo" 
+                className="h-10 w-auto"
+              />
+            </Link>
           </div>
           
           {/* Mobile menu button */}
@@ -52,6 +55,15 @@ const Navbar = () => {
             <a href="#services" className="text-gray-700 hover:text-custom-purple font-medium transition-colors">
               שירותים
             </a>
+            <Link to="/focused-landing-page" className="text-gray-700 hover:text-custom-purple font-medium transition-colors">
+              דף נחיתה מעוצב
+            </Link>
+            <Link to="/business-website" className="text-gray-700 hover:text-custom-purple font-medium transition-colors">
+              אתר עסקי
+            </Link>
+            <Link to="/business-app" className="text-gray-700 hover:text-custom-purple font-medium transition-colors">
+              אפליקציה עסקית
+            </Link>
             <a href="#faq" className="text-gray-700 hover:text-custom-purple font-medium transition-colors">
               שאלות נפוצות
             </a>
@@ -82,6 +94,27 @@ const Navbar = () => {
               >
                 שירותים
               </a>
+              <Link
+                to="/focused-landing-page"
+                className="text-gray-700 hover:text-custom-purple font-medium py-2 transition-colors"
+                onClick={toggleMenu}
+              >
+                דף נחיתה מעוצב
+              </Link>
+              <Link
+                to="/business-website"
+                className="text-gray-700 hover:text-custom-purple font-medium py-2 transition-colors"
+                onClick={toggleMenu}
+              >
+                אתר עסקי
+              </Link>
+              <Link
+                to="/business-app"
+                className="text-gray-700 hover:text-custom-purple font-medium py-2 transition-colors"
+                onClick={toggleMenu}
+              >
+                אפליקציה עסקית
+              </Link>
               <a
                 href="#faq"
                 className="text-gray-700 hover:text-custom-purple font-medium py-2 transition-colors"

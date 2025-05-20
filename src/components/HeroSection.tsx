@@ -33,7 +33,7 @@ const HeroSection = () => {
               <div className="absolute inset-0 bg-custom-purple rounded-2xl opacity-10 transform rotate-3"></div>
               <div className="absolute inset-0 bg-custom-turquoise rounded-2xl opacity-10 transform -rotate-3"></div>
               <img
-                src="https://images.unsplash.com/photo-1586892478025-2b5472316bb4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
                 alt="אנשים עובדים על מחשב"
                 className="rounded-2xl shadow-lg relative z-10 w-full"
               />

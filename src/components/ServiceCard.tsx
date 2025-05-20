@@ -26,6 +26,7 @@ const ServiceCard = ({
   const handleButtonClick = () => {
     if (linkTo) {
       navigate(linkTo);
+      window.scrollTo(0, 0);
     } else {
       window.open(whatsappLink, "_blank");
     }

@@ -1,6 +1,13 @@
 
 import React, { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 const ContactForm = () => {
   const { toast } = useToast();
@@ -9,6 +16,7 @@ const ContactForm = () => {
     email: "",
     phone: "",
     message: "",
+    package: "",
     marketingConsent: false,
     privacyConsent: false,
   });
@@ -24,6 +32,13 @@ const ContactForm = () => {
     }));
   };
 
+  const handleSelectChange = (value: string) => {
+    setFormData(prev => ({
+      ...prev,
+      package: value,
+    }));
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
@@ -31,6 +46,15 @@ const ContactForm = () => {
       toast({
         title: "שגיאה",
         description: "יש לאשר את תנאי השימוש כדי להמשיך",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (!formData.package) {
+      toast({
+        title: "שגיאה",
+        description: "יש לבחור תכנית שמעניינת אותך",
         variant: "destructive",
       });
       return;
@@ -61,6 +85,7 @@ const ContactForm = () => {
           email: "",
           phone: "",
           message: "",
+          package: "",
           marketingConsent: false,
           privacyConsent: false,
         });
@@ -80,7 +105,7 @@ const ContactForm = () => {
   };
 
   const handleWhatsApp = () => {
-    const message = `שם: ${formData.fullName}%0Aטלפון: ${formData.phone}%0Aאימייל: ${formData.email}%0Aהודעה: ${formData.message}`;
+    const message = `שם: ${formData.fullName}%0Aטלפון: ${formData.phone}%0Aאימייל: ${formData.email}%0Aתכנית: ${formData.package}%0Aהודעה: ${formData.message}`;
     window.open(`https://wa.me/972545308505?text=${message}`, "_blank");
   };
 
@@ -135,6 +160,26 @@ const ContactForm = () => {
                 onChange={handleChange}
                 className="w-full border rounded-lg p-3 focus:ring-2 focus:ring-custom-purple focus:border-transparent"
               />
+            </div>
+            
+            <div>
+              <label htmlFor="package" className="block text-sm font-medium text-gray-700 mb-1">
+                איזה תכנית מעניינת אותך? *
+              </label>
+              <Select
+                value={formData.package}
+                onValueChange={handleSelectChange}
+                required
+              >
+                <SelectTrigger className="w-full border rounded-lg p-3 focus:ring-2 focus:ring-custom-purple focus:border-transparent">
+                  <SelectValue placeholder="בחר תכנית" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="landing-page">דף מבצע ממוקד</SelectItem>
+                  <SelectItem value="business-website">אתר לעסק תוך 48 שעות</SelectItem>
+                  <SelectItem value="business-app">אפליקציה עסקית פשוטה</SelectItem>
+                </SelectContent>
+              </Select>
             </div>
             
             <div>

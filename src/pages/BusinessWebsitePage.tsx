@@ -1,7 +1,7 @@
-
 import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import ContactForm from "@/components/ContactForm";
 
 const BusinessWebsitePage = () => {
   const handleContactClick = () => {
@@ -133,6 +133,9 @@ const BusinessWebsitePage = () => {
           </div>
         </div>
       </section>
+
+      {/* Contact Form Section */}
+      <ContactForm />
 
       {/* Footer */}
       <footer className="py-8 px-4 bg-gray-100">

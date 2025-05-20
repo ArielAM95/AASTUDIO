@@ -1,5 +1,6 @@
 
 import { ArrowLeft } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 interface ServiceCardProps {
   title: string;
@@ -8,6 +9,7 @@ interface ServiceCardProps {
   price: string;
   buttonText: string;
   whatsappLink: string;
+  linkTo?: string;
 }
 
 const ServiceCard = ({
@@ -17,9 +19,16 @@ const ServiceCard = ({
   price,
   buttonText,
   whatsappLink,
+  linkTo,
 }: ServiceCardProps) => {
+  const navigate = useNavigate();
+
   const handleButtonClick = () => {
-    window.open(whatsappLink, "_blank");
+    if (linkTo) {
+      navigate(linkTo);
+    } else {
+      window.open(whatsappLink, "_blank");
+    }
   };
 
   return (

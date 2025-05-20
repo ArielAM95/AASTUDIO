@@ -18,6 +18,7 @@ const ServicesSection = () => {
       price: "החל מ־490 ש״ח",
       buttonText: "אני רוצה דף מבצע",
       whatsappLink: "https://wa.me/972545308505?text=שלום, אני רוצה דף מבצע לעסק שלי – עמוד אחד להצגת מבצע/שירות. אפשר לשלוח לי פרטים?",
+      linkTo: "/focused-landing-page",
     },
     {
       title: "אפליקציה עסקית פשוטה",

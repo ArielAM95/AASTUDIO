@@ -9,12 +9,17 @@ const Navbar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  // Function to scroll to top when navigating to a new page
+  const scrollToTop = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
     <nav className="bg-white py-4 px-6 shadow-md sticky top-0 z-50">
       <div className="container mx-auto max-w-6xl">
         <div className="flex justify-between items-center">
           <div className="text-2xl font-bold font-rubik">
-            <Link to="/">
+            <Link to="/" onClick={scrollToTop}>
               <img 
                 src="/lovable-uploads/009364ae-1b0c-4271-a068-88cc03111697.png" 
                 alt="Logo" 
@@ -55,13 +60,13 @@ const Navbar = () => {
             <a href="#services" className="text-gray-700 hover:text-custom-purple font-medium transition-colors">
               שירותים
             </a>
-            <Link to="/focused-landing-page" className="text-gray-700 hover:text-custom-purple font-medium transition-colors">
+            <Link to="/focused-landing-page" className="text-gray-700 hover:text-custom-purple font-medium transition-colors" onClick={scrollToTop}>
               דף נחיתה מעוצב
             </Link>
-            <Link to="/business-website" className="text-gray-700 hover:text-custom-purple font-medium transition-colors">
+            <Link to="/business-website" className="text-gray-700 hover:text-custom-purple font-medium transition-colors" onClick={scrollToTop}>
               אתר עסקי
             </Link>
-            <Link to="/business-app" className="text-gray-700 hover:text-custom-purple font-medium transition-colors">
+            <Link to="/business-app" className="text-gray-700 hover:text-custom-purple font-medium transition-colors" onClick={scrollToTop}>
               אפליקציה עסקית
             </Link>
             <a href="#faq" className="text-gray-700 hover:text-custom-purple font-medium transition-colors">
@@ -97,21 +102,30 @@ const Navbar = () => {
               <Link
                 to="/focused-landing-page"
                 className="text-gray-700 hover:text-custom-purple font-medium py-2 transition-colors"
-                onClick={toggleMenu}
+                onClick={() => {
+                  scrollToTop();
+                  toggleMenu();
+                }}
               >
                 דף נחיתה מעוצב
               </Link>
               <Link
                 to="/business-website"
                 className="text-gray-700 hover:text-custom-purple font-medium py-2 transition-colors"
-                onClick={toggleMenu}
+                onClick={() => {
+                  scrollToTop();
+                  toggleMenu();
+                }}
               >
                 אתר עסקי
               </Link>
               <Link
                 to="/business-app"
                 className="text-gray-700 hover:text-custom-purple font-medium py-2 transition-colors"
-                onClick={toggleMenu}
+                onClick={() => {
+                  scrollToTop();
+                  toggleMenu();
+                }}
               >
                 אפליקציה עסקית
               </Link>

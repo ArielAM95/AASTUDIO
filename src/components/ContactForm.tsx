@@ -175,8 +175,8 @@ const ContactForm = () => {
                   <SelectValue placeholder="בחר תכנית" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="landing-page">דף מבצע ממוקד</SelectItem>
-                  <SelectItem value="business-website">אתר לעסק תוך 48 שעות</SelectItem>
+                  <SelectItem value="landing-page">דף נחיתה מעוצב</SelectItem>
+                  <SelectItem value="business-website">אתר לעסק</SelectItem>
                   <SelectItem value="business-app">אפליקציה עסקית פשוטה</SelectItem>
                 </SelectContent>
               </Select>

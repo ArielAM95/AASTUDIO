@@ -1,3 +1,4 @@
+
 import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -6,7 +7,7 @@ import ContactForm from "@/components/ContactForm";
 const BusinessWebsitePage = () => {
   const handleContactClick = () => {
     window.open(
-      "https://wa.me/972545308505?text=שלום, אני מעוניין באתר לעסק שלי תוך 48 שעות. אשמח לשמוע פרטים נוספים ולראות דוגמאות.",
+      "https://wa.me/972545308505?text=שלום, אני מעוניין באתר לעסק שלי. אשמח לשמוע פרטים נוספים ולראות דוגמאות.",
       "_blank"
     );
   };
@@ -37,11 +38,10 @@ const BusinessWebsitePage = () => {
           <div className="flex flex-col md:flex-row items-center">
             <div className="md:w-1/2 mb-8 md:mb-0 animate-fade-in">
               <h1 className="text-3xl md:text-5xl font-bold text-custom-purple mb-6 font-rubik">
-                אתר לעסק תוך 48 שעות
+                אתר לעסק
               </h1>
               <p className="text-lg md:text-xl mb-6 text-gray-700">
                 אתר תדמית מעוצב, מותאם לנייד, עם וואטסאפ, מפה וטופס יצירת קשר.
-                הכל מוכן ועולה לאוויר תוך יומיים בלבד.
               </p>
               <div className="bg-custom-turquoise/10 rounded-lg p-5 mb-6">
                 <h3 className="font-bold text-xl text-custom-purple mb-2">למי זה מתאים?</h3>
@@ -52,11 +52,12 @@ const BusinessWebsitePage = () => {
                 </ul>
               </div>
               <div className="font-bold text-2xl mb-6 text-custom-purple">החל מ־950 ש״ח</div>
+              <p className="text-sm text-gray-600 mb-4">* המחירים וזמן האספקה תלויים באפיון צרכי הלקוח</p>
               <button
                 onClick={handleContactClick}
                 className="bg-custom-purple hover:bg-opacity-90 text-white font-medium py-3 px-8 rounded-lg flex items-center gap-2 transition-all shadow-lg hover:shadow-xl"
               >
-                אני רוצה אתר תוך 48 שעות
+                אני רוצה אתר לעסק
                 <ArrowLeft size={18} className="rtl:rotate-180" />
               </button>
             </div>
@@ -66,7 +67,7 @@ const BusinessWebsitePage = () => {
                 <div className="absolute inset-0 bg-custom-turquoise rounded-2xl opacity-10 transform -rotate-3"></div>
                 <img
                   src="https://images.unsplash.com/photo-1517292987719-0369a794ec0f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
-                  alt="אתר לעסק תוך 48 שעות"
+                  alt="אתר לעסק"
                   className="rounded-2xl shadow-lg relative z-10 w-full"
                 />
               </div>

@@ -4,21 +4,21 @@ import ServiceCard from "./ServiceCard";
 const ServicesSection = () => {
   const services = [
     {
-      title: "אתר לעסק תוך 48 שעות",
+      title: "אתר לעסק",
       icon: "📦",
       description: "אתר תדמית מעוצב, מותאם לנייד, עם וואטסאפ, מפה וטופס.",
       price: "החל מ־950 ש״ח",
       buttonText: "מה זה כולל",
-      whatsappLink: "https://wa.me/972545308505?text=שלום, אני מעוניין באתר לעסק שלי תוך 48 שעות. אשמח לשמוע פרטים נוספים ולראות דוגמאות.",
+      whatsappLink: "https://wa.me/972545308505?text=שלום, אני מעוניין באתר לעסק שלי. אשמח לשמוע פרטים נוספים ולראות דוגמאות.",
       linkTo: "/business-website",
     },
     {
-      title: "דף מבצע ממוקד",
+      title: "דף נחיתה מעוצב תוך 48 שעות*",
       icon: "🎯",
       description: "עמוד אחד מושך, מכירתי ומיידי, להצגת שירות או מבצע.",
       price: "החל מ־490 ש״ח",
       buttonText: "מה זה כולל",
-      whatsappLink: "https://wa.me/972545308505?text=שלום, אני רוצה דף מבצע לעסק שלי – עמוד אחד להצגת מבצע/שירות. אפשר לשלוח לי פרטים?",
+      whatsappLink: "https://wa.me/972545308505?text=שלום, אני רוצה דף נחיתה מעוצב לעסק שלי – עמוד אחד להצגת מבצע/שירות. אפשר לשלוח לי פרטים?",
       linkTo: "/focused-landing-page",
     },
     {
@@ -49,6 +49,7 @@ const ServicesSection = () => {
             </div>
           ))}
         </div>
+        <p className="text-center mt-8 text-gray-600 font-assistant">* המחירים וזמן האספקה תלויים באפיון צרכי הלקוח</p>
       </div>
     </section>
   );

@@ -101,7 +101,7 @@ const FocusedLandingPage = () => {
             </p>
             <button onClick={handleContactClick} className="bg-white hover:bg-gray-100 text-custom-purple font-medium py-3 px-8 rounded-lg flex items-center gap-2 transition-all mx-auto">
               דברו איתנו עכשיו
-              <ArrowLeft size={18} className="rtl:rotate-180" />
+              <ArrowLeft size={18} className="rtl:rotate90" />
             </button>
           </div>
         </div>

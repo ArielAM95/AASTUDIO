@@ -275,7 +275,7 @@ const ContactForm = ({ id }: { id?: string }) => {
                 <Facebook size={20} />
               </a>
               <a 
-                href="https://www.instagram.com/aa_webstudio/?utm_source=qr&r=nametag" 
+                href="https://www.instagram.com/aa_websudio/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="bg-[#E4405F] hover:bg-[#d32d57] h-10 w-10 rounded-full flex items-center justify-center transition-colors text-white"

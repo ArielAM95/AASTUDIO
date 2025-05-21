@@ -61,7 +61,7 @@ const Footer = () => {
                 <a href="https://www.facebook.com/profile.php?id=61576245820554#" target="_blank" rel="noopener noreferrer" className="bg-[#3b5998] hover:bg-[#2d4473] h-10 w-10 rounded-full flex items-center justify-center transition-colors">
                   <Facebook size={20} />
                 </a>
-                <a href="https://www.instagram.com/aa_webstudio/?utm_source=qr&r=nametag" target="_blank" rel="noopener noreferrer" className="bg-[#E4405F] hover:bg-[#d32d57] h-10 w-10 rounded-full flex items-center justify-center transition-colors">
+                <a href="https://www.instagram.com/aa_websudio/" target="_blank" rel="noopener noreferrer" className="bg-[#E4405F] hover:bg-[#d32d57] h-10 w-10 rounded-full flex items-center justify-center transition-colors">
                   <Instagram size={20} />
                 </a>
               </div>

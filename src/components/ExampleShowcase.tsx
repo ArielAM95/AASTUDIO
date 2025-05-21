@@ -30,6 +30,9 @@ const ExampleShowcase = ({ title, examples }: ExampleShowcaseProps) => {
                   src={example.imageUrl} 
                   alt={example.title} 
                   className="w-full h-full object-cover transition-transform hover:scale-105"
+                  onError={(e) => {
+                    e.currentTarget.src = "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80";
+                  }}
                 />
               </div>
               <div className="p-6">

@@ -170,11 +170,12 @@ const ContactForm = () => {
                 value={formData.package}
                 onValueChange={handleSelectChange}
                 required
+                dir="rtl"
               >
-                <SelectTrigger className="w-full border rounded-lg p-3 focus:ring-2 focus:ring-custom-purple focus:border-transparent">
+                <SelectTrigger className="w-full text-right border rounded-lg p-3 focus:ring-2 focus:ring-custom-purple focus:border-transparent">
                   <SelectValue placeholder="בחר תכנית" />
                 </SelectTrigger>
-                <SelectContent>
+                <SelectContent className="text-right">
                   <SelectItem value="landing-page">דף נחיתה מעוצב</SelectItem>
                   <SelectItem value="business-website">אתר לעסק</SelectItem>
                   <SelectItem value="business-app">אפליקציה עסקית פשוטה</SelectItem>

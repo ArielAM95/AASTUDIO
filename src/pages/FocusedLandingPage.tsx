@@ -1,14 +1,31 @@
-
 import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import ContactForm from "@/components/ContactForm";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ExampleShowcase from "@/components/ExampleShowcase";
+
 const FocusedLandingPage = () => {
   const handleContactClick = () => {
     window.open("https://wa.me/972545308505?text=שלום, אני רוצה דף מבצע לעסק שלי – עמוד אחד להצגת מבצע/שירות. אפשר לשלוח לי פרטים?", "_blank");
   };
+  
+  const examples = [
+    {
+      title: "דף מבצע שיווקי",
+      description: "דף נחיתה ממוקד למבצע שיווקי מיוחד, עם טופס לאיסוף לידים",
+      imageUrl: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      linkUrl: "https://review.ofair.co.il"
+    },
+    {
+      title: "דף עסקי לשירותים",
+      description: "דף נחיתה להצגת שירותים עסקיים עם קריאה לפעולה ברורה",
+      imageUrl: "https://images.unsplash.com/photo-1534670007418-bc0108e58e5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      linkUrl: "https://biz.ofair.co.il"
+    }
+  ];
+
   return <div className="min-h-screen bg-gradient-to-br from-white to-purple-50">
       {/* Navbar */}
       <Navbar />
@@ -89,6 +106,9 @@ const FocusedLandingPage = () => {
           </div>
         </div>
       </section>
+      
+      {/* Examples Section */}
+      <ExampleShowcase title="דוגמאות לדפי נחיתה שיצרנו" examples={examples} />
       
       {/* CTA Section */}
       <section className="py-16 px-4">

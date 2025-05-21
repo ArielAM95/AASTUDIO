@@ -5,10 +5,22 @@ import { Card, CardContent } from "@/components/ui/card";
 import ContactForm from "@/components/ContactForm";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ExampleShowcase from "@/components/ExampleShowcase";
+
 const BusinessWebsitePage = () => {
   const handleContactClick = () => {
     window.open("https://wa.me/972545308505?text=שלום, אני מעוניין באתר לעסק שלי. אשמח לשמוע פרטים נוספים ולראות דוגמאות.", "_blank");
   };
+  
+  const examples = [
+    {
+      title: "אתר מסחרי לתעופה",
+      description: "אתר מודרני ומותאם למובייל עם מערכת הצעות מחיר מתקדמת",
+      imageUrl: "https://images.unsplash.com/photo-1569154941061-e231b4725ef1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      linkUrl: "https://preview--airfq-aero-bid-nexus.lovable.app/"
+    }
+  ];
+
   return <div className="min-h-screen bg-gradient-to-br from-white to-purple-50">
       {/* Navbar */}
       <Navbar />
@@ -89,6 +101,9 @@ const BusinessWebsitePage = () => {
           </div>
         </div>
       </section>
+
+      {/* Examples Section */}
+      <ExampleShowcase title="דוגמאות לאתרים עסקיים שיצרנו" examples={examples} />
 
       {/* CTA Section */}
       <section className="py-16 px-4">

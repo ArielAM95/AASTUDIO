@@ -1,4 +1,3 @@
-
 import React from "react";
 import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -6,10 +5,28 @@ import { Card, CardContent } from "@/components/ui/card";
 import ContactForm from "@/components/ContactForm";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ExampleShowcase from "@/components/ExampleShowcase";
+
 const BusinessAppPage = () => {
   const handleContactClick = () => {
     window.open("https://wa.me/972545308505?text=שלום, אני מעוניין באפליקציה בסיסית לעסק שלי. אשמח להבין מה האפשרויות ומה העלות.", "_blank");
   };
+  
+  const examples = [
+    {
+      title: "אפליקציית ניהול תעופה",
+      description: "אפליקציה לניהול הצעות מחיר ולוגיסטיקה בתחום התעופה",
+      imageUrl: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      linkUrl: "https://preview--airfq-aero-bid-nexus.lovable.app/"
+    },
+    {
+      title: "אפליקציית שירות לקוחות",
+      description: "אפליקציה לניהול פניות לקוחות וטיפול בבקשות שירות",
+      imageUrl: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      linkUrl: "https://ofair.co.il"
+    }
+  ];
+
   return <div className="min-h-screen bg-gradient-to-br from-white to-purple-50">
       {/* Navbar */}
       <Navbar />
@@ -90,6 +107,9 @@ const BusinessAppPage = () => {
           </div>
         </div>
       </section>
+
+      {/* Examples Section */}
+      <ExampleShowcase title="דוגמאות לאפליקציות עסקיות שפיתחנו" examples={examples} />
 
       {/* CTA Section */}
       <section className="py-16 px-4">

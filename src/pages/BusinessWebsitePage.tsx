@@ -5,17 +5,11 @@ import { Card, CardContent } from "@/components/ui/card";
 import ContactForm from "@/components/ContactForm";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-
 const BusinessWebsitePage = () => {
   const handleContactClick = () => {
-    window.open(
-      "https://wa.me/972545308505?text=שלום, אני מעוניין באתר לעסק שלי. אשמח לשמוע פרטים נוספים ולראות דוגמאות.",
-      "_blank"
-    );
+    window.open("https://wa.me/972545308505?text=שלום, אני מעוניין באתר לעסק שלי. אשמח לשמוע פרטים נוספים ולראות דוגמאות.", "_blank");
   };
-
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-white to-purple-50">
+  return <div className="min-h-screen bg-gradient-to-br from-white to-purple-50">
       {/* Navbar */}
       <Navbar />
       
@@ -40,23 +34,18 @@ const BusinessWebsitePage = () => {
               </div>
               <div className="font-bold text-2xl mb-6 text-custom-purple">החל מ־950 ש״ח</div>
               <p className="text-sm text-gray-600 mb-4">* המחירים וזמן האספקה תלויים באפיון צרכי הלקוח</p>
-              <button
-                onClick={handleContactClick}
-                className="bg-custom-purple hover:bg-opacity-90 text-white font-medium py-3 px-8 rounded-lg flex items-center gap-2 transition-all shadow-lg hover:shadow-xl"
-              >
+              <button onClick={handleContactClick} className="bg-custom-purple hover:bg-opacity-90 text-white font-medium py-3 px-8 rounded-lg flex items-center gap-2 transition-all shadow-lg hover:shadow-xl">
                 אני רוצה אתר לעסק
-                <ArrowLeft size={18} className="rtl:rotate-180" />
+                <ArrowLeft size={18} className="rtl:rotate90" />
               </button>
             </div>
-            <div className="md:w-1/2 animate-fade-in" style={{ animationDelay: "0.2s" }}>
+            <div className="md:w-1/2 animate-fade-in" style={{
+            animationDelay: "0.2s"
+          }}>
               <div className="relative">
                 <div className="absolute inset-0 bg-custom-purple rounded-2xl opacity-10 transform rotate-3"></div>
                 <div className="absolute inset-0 bg-custom-turquoise rounded-2xl opacity-10 transform -rotate-3"></div>
-                <img
-                  src="https://images.unsplash.com/photo-1517292987719-0369a794ec0f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
-                  alt="אתר לעסק"
-                  className="rounded-2xl shadow-lg relative z-10 w-full"
-                />
+                <img src="https://images.unsplash.com/photo-1517292987719-0369a794ec0f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="אתר לעסק" className="rounded-2xl shadow-lg relative z-10 w-full" />
               </div>
             </div>
           </div>
@@ -111,10 +100,7 @@ const BusinessWebsitePage = () => {
             <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto">
               פנו אלינו עכשיו ונחזור אליכם תוך 24 שעות עם הצעה מותאמת לאתר העסקי שלכם
             </p>
-            <button
-              onClick={handleContactClick}
-              className="bg-white hover:bg-gray-100 text-custom-purple font-medium py-3 px-8 rounded-lg flex items-center gap-2 transition-all mx-auto"
-            >
+            <button onClick={handleContactClick} className="bg-white hover:bg-gray-100 text-custom-purple font-medium py-3 px-8 rounded-lg flex items-center gap-2 transition-all mx-auto">
               דברו איתנו עכשיו
               <ArrowLeft size={18} className="rtl:rotate-180" />
             </button>
@@ -127,8 +113,6 @@ const BusinessWebsitePage = () => {
 
       {/* Footer */}
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default BusinessWebsitePage;

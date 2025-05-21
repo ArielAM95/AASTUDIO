@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -9,7 +8,7 @@ const Footer = () => {
       <div className="container mx-auto max-w-6xl">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <h3 className="text-xl font-bold mb-4 font-rubik">Web<span className="text-custom-turquoise">Studio</span></h3>
+            <h3 className="text-xl font-bold mb-4 font-rubik">Web<span className="text-custom-turquoise">SUDIO</span></h3>
             <p className="text-gray-300 mb-4 font-assistant">
               אנחנו מתמחים בבניית אתרים, דפי נחיתה ואפליקציות עסקיות פשוטות לעסקים קטנים ובינוניים.
             </p>
@@ -73,7 +72,7 @@ const Footer = () => {
         </div>
         
         <div className="border-t border-gray-700 mt-8 pt-6 text-center text-gray-400 font-assistant">
-          <p>© {currentYear} WebStudio. כל הזכויות שמורות</p>
+          <p>© {currentYear} WebSUDIO. כל הזכויות שמורות</p>
         </div>
       </div>
     </footer>

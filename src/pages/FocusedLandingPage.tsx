@@ -35,7 +35,7 @@ const FocusedLandingPage = () => {
               </div>
               <div className="font-bold text-2xl mb-6 text-custom-purple">החל מ־490 ש״ח</div>
               <button onClick={handleContactClick} className="bg-custom-purple hover:bg-opacity-90 text-white font-medium py-3 px-8 rounded-lg flex items-center gap-2 transition-all shadow-lg hover:shadow-xl">
-                דף נחיתה
+                אני רוצה דף נחיתה
                 <ArrowLeft size={18} className="rtl:rotate90" />
               </button>
             </div>

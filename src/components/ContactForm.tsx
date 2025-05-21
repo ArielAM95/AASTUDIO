@@ -1,6 +1,14 @@
 
 import React, { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import { Facebook, Instagram } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
 import {
   Select,
   SelectContent,
@@ -9,7 +17,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-const ContactForm = () => {
+const ContactForm = ({ id }: { id?: string }) => {
   const { toast } = useToast();
   const [formData, setFormData] = useState({
     fullName: "",
@@ -21,6 +29,7 @@ const ContactForm = () => {
     privacyConsent: false,
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [successDialogOpen, setSuccessDialogOpen] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value, type } = e.target as HTMLInputElement;
@@ -74,10 +83,8 @@ const ContactForm = () => {
       });
       
       if (response.ok) {
-        toast({
-          title: "הטופס נשלח בהצלחה",
-          description: "ניצור איתך קשר בהקדם",
-        });
+        // Show success dialog instead of toast
+        setSuccessDialogOpen(true);
         
         // Reset form
         setFormData({
@@ -110,7 +117,7 @@ const ContactForm = () => {
   };
 
   return (
-    <section className="py-16 px-4 turquoise-gradient" id="contact">
+    <section className="py-16 px-4 turquoise-gradient" id={id}>
       <div className="container mx-auto max-w-4xl">
         <h2 className="text-3xl font-bold text-center mb-12 font-rubik text-custom-purple">
           צרו איתנו קשר
@@ -179,6 +186,7 @@ const ContactForm = () => {
                   <SelectItem value="landing-page">דף נחיתה מעוצב</SelectItem>
                   <SelectItem value="business-website">אתר לעסק</SelectItem>
                   <SelectItem value="business-app">אפליקציה עסקית פשוטה</SelectItem>
+                  <SelectItem value="custom">אפרט בהרחבה - פרויקט אחר</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -256,9 +264,40 @@ const ContactForm = () => {
                 שליחה בוואטסאפ
               </button>
             </div>
+            
+            <div className="flex justify-center mt-8 space-x-4 rtl:space-x-reverse">
+              <a 
+                href="https://www.facebook.com/profile.php?id=61576245820554#" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="bg-[#3b5998] hover:bg-[#2d4473] h-10 w-10 rounded-full flex items-center justify-center transition-colors text-white"
+              >
+                <Facebook size={20} />
+              </a>
+              <a 
+                href="https://www.instagram.com/aa_webstudio/?utm_source=qr&r=nametag" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="bg-[#E4405F] hover:bg-[#d32d57] h-10 w-10 rounded-full flex items-center justify-center transition-colors text-white"
+              >
+                <Instagram size={20} />
+              </a>
+            </div>
           </form>
         </div>
       </div>
+      
+      {/* Success Dialog */}
+      <Dialog open={successDialogOpen} onOpenChange={setSuccessDialogOpen}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle className="text-right text-xl">הטופס נשלח בהצלחה</DialogTitle>
+            <DialogDescription className="text-right">
+              תודה שפנית אלינו. ניצור איתך קשר בהקדם.
+            </DialogDescription>
+          </DialogHeader>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };

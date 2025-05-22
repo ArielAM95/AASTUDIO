@@ -94,6 +94,9 @@ const Navbar = () => {
             <Link to="/business-app" className="text-gray-700 hover:text-custom-purple font-medium transition-colors" onClick={scrollToTop}>
               אפליקציה עסקית
             </Link>
+            <Link to="/digital-advertising" className="text-gray-700 hover:text-custom-purple font-medium transition-colors" onClick={scrollToTop}>
+              פרסום דיגיטלי
+            </Link>
             <a 
               href="#" 
               onClick={(e) => {
@@ -170,6 +173,16 @@ const Navbar = () => {
                 }}
               >
                 אפליקציה עסקית
+              </Link>
+              <Link
+                to="/digital-advertising"
+                className="text-gray-700 hover:text-custom-purple font-medium py-2 transition-colors"
+                onClick={() => {
+                  scrollToTop();
+                  toggleMenu();
+                }}
+              >
+                פרסום דיגיטלי
               </Link>
               <a
                 href="#"

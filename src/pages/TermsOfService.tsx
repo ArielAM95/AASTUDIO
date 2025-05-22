@@ -1,18 +1,15 @@
-
 import React from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-
 const TermsOfService = () => {
-  return (
-    <div className="min-h-screen">
+  return <div className="min-h-screen">
       <Navbar />
       <main className="container mx-auto max-w-4xl py-12 px-4">
         <h1 className="text-3xl font-bold mb-8 font-rubik">תנאי שימוש</h1>
         
         <div className="space-y-6 font-assistant">
           <section>
-            <p>ברוכים הבאים לאתר של WebStudio. האתר מופעל על ידי WebStudio ("אנחנו", "אותנו", או "שלנו"). בבקשה קרא בעיון את תנאי השימוש הבאים ("תנאים") לפני שאתה משתמש באתר שלנו.</p>
+            <p>ברוכים הבאים לאתר של AA_WebSudio. האתר מופעל על ידי AA_WebSudio (&quot;אנחנו&quot;, &quot;אותנו&quot;, או &quot;שלנו&quot;). בבקשה קרא בעיון את תנאי השימוש הבאים (&quot;תנאים&quot;) לפני שאתה משתמש באתר שלנו.</p>
             <p className="mt-2">השימוש שלך באתר מהווה הסכמה לתנאים אלה. אם אינך מסכים לתנאים אלה, אנא אל תשתמש באתר.</p>
           </section>
 
@@ -45,7 +42,7 @@ const TermsOfService = () => {
 
           <section>
             <h2 className="text-xl font-bold mb-3 font-rubik">קניין רוחני</h2>
-            <p>כל זכויות הקניין הרוחני באתר ובתוכנו, למעט התוכן שסופק על ידך, הם הרכוש של WebStudio או המעניקים שלנו.</p>
+            <p>כל זכויות הקניין הרוחני באתר ובתוכנו, למעט התוכן שסופק על ידך, הם הרכוש של WebSudio או המעניקים שלנו.</p>
             <p className="mt-2">לאחר תשלום מלא עבור השירותים, אתה תקבל רישיון לא בלעדי להשתמש בתוצרים הסופיים למטרות העסקיות שלך.</p>
           </section>
 
@@ -57,7 +54,7 @@ const TermsOfService = () => {
 
           <section>
             <h2 className="text-xl font-bold mb-3 font-rubik">הגבלת חבות</h2>
-            <p>במידה המרבית המותרת על פי החוק, WebStudio לא תהיה אחראית לכל נזק ישיר, עקיף, מקרי, תוצאתי או מיוחד הנובע מהשימוש או אי-יכולת להשתמש בשירותים שלנו.</p>
+            <p>במידה המרבית המותרת על פי החוק, WebSudio לא תהיה אחראית לכל נזק ישיר, עקיף, מקרי, תוצאתי או מיוחד הנובע מהשימוש או אי-יכולת להשתמש בשירותים שלנו.</p>
           </section>
 
           <section>
@@ -86,8 +83,6 @@ const TermsOfService = () => {
         </div>
       </main>
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default TermsOfService;

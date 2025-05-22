@@ -10,6 +10,7 @@ import FocusedLandingPage from "./pages/FocusedLandingPage";
 import BusinessWebsitePage from "./pages/BusinessWebsitePage";
 import BusinessAppPage from "./pages/BusinessAppPage";
 import DigitalAdvertisingPage from "./pages/DigitalAdvertisingPage";
+import ContactPage from "./pages/ContactPage";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 
@@ -27,6 +28,7 @@ const App = () => (
           <Route path="/business-website" element={<BusinessWebsitePage />} />
           <Route path="/business-app" element={<BusinessAppPage />} />
           <Route path="/digital-advertising" element={<DigitalAdvertisingPage />} />
+          <Route path="/contact" element={<ContactPage />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

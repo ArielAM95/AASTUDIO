@@ -187,6 +187,8 @@ const ContactForm = ({ id }: { id?: string }) => {
                   <SelectItem value="landing-page">דף נחיתה מעוצב</SelectItem>
                   <SelectItem value="business-website">אתר לעסק</SelectItem>
                   <SelectItem value="business-app">אפליקציה עסקית פשוטה</SelectItem>
+                  <SelectItem value="digital-advertising">פרסום דיגיטלי</SelectItem>
+                  <SelectItem value="landing-page-with-advertising">חבילת דף נחיתה עם פרסום</SelectItem>
                   <SelectItem value="custom">אפרט בהרחבה - פרויקט אחר</SelectItem>
                 </SelectContent>
               </Select>

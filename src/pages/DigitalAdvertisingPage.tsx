@@ -3,16 +3,9 @@ import React from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow
-} from "@/components/ui/table";
 import { Check } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import ContactForm from "@/components/ContactForm";
 
 const DigitalAdvertisingPage = () => {
   return (
@@ -90,77 +83,6 @@ const DigitalAdvertisingPage = () => {
               image="https://images.unsplash.com/photo-1616469829941-c7200edec809?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
               benefits={["B2B", "קהל איכותי", "ממוקד עסקית"]}
             />
-          </div>
-        </div>
-      </section>
-      
-      {/* Pricing Section */}
-      <section className="py-20 px-4 bg-gray-900">
-        <div className="container mx-auto max-w-6xl">
-          <h2 className="text-3xl font-bold text-center mb-4 font-rubik text-custom-purple">
-            תכניות פרסום והשקעה
-          </h2>
-          <p className="text-center text-gray-300 mb-12 max-w-3xl mx-auto">
-            אנחנו מציעים מגוון תכניות לניהול קמפיינים דיגיטליים, 
-            כל תכנית מותאמת לגודל העסק, המטרות והתקציב שלכם.
-          </p>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <PricingCard
-              title="סטארטר"
-              price="990 ₪"
-              description="לעסקים קטנים שרוצים להתחיל"
-              features={[
-                "ניהול פלטפורמה אחת",
-                "תקציב פרסום עד 3,000 ₪",
-                "דו״ח ביצועים חודשי",
-                "מענה בוואטסאפ",
-                "2 עדכוני מודעות בחודש"
-              ]}
-              recommended={false}
-            />
-            
-            <PricingCard
-              title="ביזנס"
-              price="1,790 ₪"
-              description="לעסקים בינוניים שרוצים לצמוח"
-              features={[
-                "ניהול 2-3 פלטפורמות",
-                "תקציב פרסום עד 10,000 ₪",
-                "דו״חות ביצועים שבועיים",
-                "מענה בוואטסאפ ובטלפון",
-                "4 עדכוני מודעות בחודש",
-                "אופטימיזציה שבועית",
-                "אסטרטגיית פרסום מותאמת"
-              ]}
-              recommended={true}
-            />
-            
-            <PricingCard
-              title="פרימיום"
-              price="2,990 ₪"
-              description="לחברות וארגונים גדולים"
-              features={[
-                "ניהול כל הפלטפורמות",
-                "תקציב פרסום ללא הגבלה",
-                "דו״חות ביצועים שבועיים",
-                "מענה 24/7",
-                "עדכוני מודעות ללא הגבלה",
-                "אופטימיזציה יומית",
-                "אסטרטגיית פרסום מקיפה",
-                "פגישות סטטוס חודשיות",
-                "מנהל לקוח אישי"
-              ]}
-              recommended={false}
-            />
-          </div>
-          
-          <div className="mt-12 text-center">
-            <p className="text-gray-400 mb-4">דרישות מיוחדות? צור איתנו קשר להצעת מחיר מותאמת.</p>
-            <Button onClick={() => window.location.href = "https://wa.me/972545308505?text=שלום, אני מעוניין בהצעת מחיר מותאמת לשירותי הפרסום הדיגיטלי."} 
-              variant="outline" className="border-custom-turquoise text-custom-turquoise hover:bg-custom-turquoise hover:text-gray-900">
-              לשיחת ייעוץ והצעת מחיר
-            </Button>
           </div>
         </div>
       </section>
@@ -258,6 +180,9 @@ const DigitalAdvertisingPage = () => {
         </div>
       </section>
       
+      {/* Contact Form Section */}
+      <ContactForm id="contact" />
+      
       <Footer />
     </div>
   );
@@ -280,39 +205,6 @@ const PlatformCard = ({ name, description, image, benefits }) => (
           </li>
         ))}
       </ul>
-    </div>
-  </div>
-);
-
-// Component for pricing cards in the Pricing section
-const PricingCard = ({ title, price, description, features, recommended }) => (
-  <div className={`rounded-xl overflow-hidden transition-all ${recommended ? 'border-2 border-custom-turquoise relative transform scale-105 z-10' : 'border border-gray-700'}`}>
-    {recommended && (
-      <div className="bg-custom-turquoise text-gray-900 py-1 text-center font-medium">
-        הכי פופולרי
-      </div>
-    )}
-    <div className="p-6 bg-gray-800">
-      <h3 className="text-xl font-bold mb-2 text-white">{title}</h3>
-      <div className="text-3xl font-bold text-custom-purple mb-2">
-        {price}
-        <span className="text-sm text-gray-400 font-normal"> / חודש</span>
-      </div>
-      <p className="text-gray-300 mb-4">{description}</p>
-      <ul className="space-y-3 mt-6">
-        {features.map((feature, index) => (
-          <li key={index} className="flex items-start gap-2">
-            <Check size={18} className="text-custom-turquoise mt-1 flex-shrink-0" />
-            <span className="text-gray-300">{feature}</span>
-          </li>
-        ))}
-      </ul>
-      <div className="mt-8">
-        <Button onClick={() => window.location.href = `https://wa.me/972545308505?text=שלום, אני מעוניין בתוכנית ${title} לפרסום דיגיטלי. אשמח לשמוע פרטים נוספים.`} 
-          className={`w-full ${recommended ? 'bg-custom-turquoise text-gray-900' : 'bg-gray-700 hover:bg-gray-600 text-white'}`}>
-          {recommended ? 'הצטרפו עכשיו' : 'פרטים נוספים'}
-        </Button>
-      </div>
     </div>
   </div>
 );

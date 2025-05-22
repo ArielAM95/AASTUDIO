@@ -107,16 +107,9 @@ const Navbar = () => {
             >
               שאלות נפוצות
             </a>
-            <a 
-              href="#" 
-              onClick={(e) => {
-                e.preventDefault();
-                handleSectionClick("contact");
-              }} 
-              className="text-gray-700 hover:text-custom-purple font-medium transition-colors"
-            >
+            <Link to="/contact" className="text-gray-700 hover:text-custom-purple font-medium transition-colors" onClick={scrollToTop}>
               צור קשר
-            </a>
+            </Link>
           </div>
           
           {/* Contact button */}
@@ -194,16 +187,16 @@ const Navbar = () => {
               >
                 שאלות נפוצות
               </a>
-              <a
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleSectionClick("contact");
-                }}
+              <Link
+                to="/contact"
                 className="text-gray-700 hover:text-custom-purple font-medium py-2 transition-colors"
+                onClick={() => {
+                  scrollToTop();
+                  toggleMenu();
+                }}
               >
                 צור קשר
-              </a>
+              </Link>
               <a
                 href="https://wa.me/972545308505"
                 target="_blank"

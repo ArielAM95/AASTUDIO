@@ -157,7 +157,7 @@ const ContactForm = ({ id }: { id?: string }) => {
             
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                אימייל
+                אימייל *
               </label>
               <input
                 type="email"
@@ -165,6 +165,7 @@ const ContactForm = ({ id }: { id?: string }) => {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
+                required
                 className="w-full border rounded-lg p-3 focus:ring-2 focus:ring-custom-purple focus:border-transparent"
               />
             </div>

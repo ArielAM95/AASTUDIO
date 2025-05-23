@@ -29,6 +29,7 @@ const ContactForm = ({ id }: { id?: string }) => {
     privacyConsent: false,
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isWhatsAppSubmitting, setIsWhatsAppSubmitting] = useState(false);
   const [successDialogOpen, setSuccessDialogOpen] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -111,9 +112,71 @@ const ContactForm = ({ id }: { id?: string }) => {
     }
   };
 
-  const handleWhatsApp = () => {
-    const message = `שם: ${formData.fullName}%0Aטלפון: ${formData.phone}%0Aאימייל: ${formData.email}%0Aתכנית: ${formData.package}%0Aהודעה: ${formData.message}`;
-    window.open(`https://wa.me/972545308505?text=${message}`, "_blank");
+  const handleWhatsApp = async () => {
+    if (!formData.privacyConsent) {
+      toast({
+        title: "שגיאה",
+        description: "יש לאשר את תנאי השימוש כדי להמשיך",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (!formData.package) {
+      toast({
+        title: "שגיאה",
+        description: "יש לבחור תכנית שמעניינת אותך",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsWhatsAppSubmitting(true);
+    
+    try {
+      // Send data to webhook
+      const response = await fetch("https://hook.eu2.make.com/9qwvtpc76ild1awatk3q2f1hebl43sbg", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...formData,
+          submission_type: "whatsapp"
+        }),
+      });
+      
+      if (response.ok) {
+        // Show success dialog
+        setSuccessDialogOpen(true);
+        
+        // Reset form
+        setFormData({
+          fullName: "",
+          email: "",
+          phone: "",
+          message: "",
+          package: "",
+          marketingConsent: false,
+          privacyConsent: false,
+        });
+        
+        // Also open WhatsApp with the message
+        const message = `שם: ${formData.fullName}%0Aטלפון: ${formData.phone}%0Aאימייל: ${formData.email}%0Aתכנית: ${formData.package}%0Aהודעה: ${formData.message}`;
+        window.open(`https://wa.me/972545308505?text=${message}`, "_blank");
+      } else {
+        throw new Error("שגיאה בשליחת הטופס");
+      }
+    } catch (error) {
+      console.error("Error submitting form via WhatsApp:", error);
+      toast({
+        title: "שגיאה",
+        description: "אירעה שגיאה בשליחת הטופס, אנא נסו שוב מאוחר יותר",
+        variant: "destructive",
+      });
+    } finally {
+      setIsWhatsAppSubmitting(false);
+    }
   };
 
   return (
@@ -250,7 +313,8 @@ const ContactForm = ({ id }: { id?: string }) => {
               <button
                 type="button"
                 onClick={handleWhatsApp}
-                className="bg-green-500 text-white py-3 px-6 rounded-lg font-medium hover:bg-opacity-90 transition-all flex-1 flex justify-center items-center gap-2"
+                disabled={isWhatsAppSubmitting}
+                className="bg-green-500 text-white py-3 px-6 rounded-lg font-medium hover:bg-opacity-90 transition-all flex-1 flex justify-center items-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -264,7 +328,7 @@ const ContactForm = ({ id }: { id?: string }) => {
                     clipRule="evenodd"
                   />
                 </svg>
-                שליחה בוואטסאפ
+                {isWhatsAppSubmitting ? "שולח..." : "שליחה בוואטסאפ"}
               </button>
             </div>
             

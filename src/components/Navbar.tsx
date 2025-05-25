@@ -97,16 +97,9 @@ const Navbar = () => {
             <Link to="/digital-advertising" className="text-gray-700 hover:text-custom-purple font-medium transition-colors" onClick={scrollToTop}>
               פרסום דיגיטלי
             </Link>
-            <a 
-              href="#" 
-              onClick={(e) => {
-                e.preventDefault();
-                handleSectionClick("faq");
-              }} 
-              className="text-gray-700 hover:text-custom-purple font-medium transition-colors"
-            >
+            <Link to="/faq" className="text-gray-700 hover:text-custom-purple font-medium transition-colors" onClick={scrollToTop}>
               שאלות נפוצות
-            </a>
+            </Link>
             <Link to="/contact" className="text-gray-700 hover:text-custom-purple font-medium transition-colors" onClick={scrollToTop}>
               צור קשר
             </Link>
@@ -177,16 +170,16 @@ const Navbar = () => {
               >
                 פרסום דיגיטלי
               </Link>
-              <a
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleSectionClick("faq");
-                }}
+              <Link
+                to="/faq"
                 className="text-gray-700 hover:text-custom-purple font-medium py-2 transition-colors"
+                onClick={() => {
+                  scrollToTop();
+                  toggleMenu();
+                }}
               >
                 שאלות נפוצות
-              </a>
+              </Link>
               <Link
                 to="/contact"
                 className="text-gray-700 hover:text-custom-purple font-medium py-2 transition-colors"

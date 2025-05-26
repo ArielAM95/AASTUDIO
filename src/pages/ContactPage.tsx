@@ -1,4 +1,3 @@
-
 import React from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -45,7 +44,7 @@ const ContactPage = () => {
                 </svg>
               </div>
               <h3 className="text-lg font-bold mb-2">אימייל</h3>
-              <p className="text-gray-600"><a href="mailto:info@aa-websudio.co.il" className="hover:text-custom-purple">info@aa-websudio.co.il</a></p>
+              <p className="text-gray-600"><a href="mailto:ARIEL@AMGROUP.CO.IL" className="hover:text-custom-purple">ARIEL@AMGROUP.CO.IL</a></p>
             </div>
             
             <div className="bg-gray-50 p-6 rounded-xl shadow-sm text-center">

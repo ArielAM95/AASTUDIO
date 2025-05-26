@@ -59,21 +59,43 @@ export function useMediaQuery(
   return matches
 }
 
-const keywords = [
-  "night",
-  "city",
-  "sky",
-  "sunset",
-  "sunrise",
-  "winter",
-  "skyscraper",
-  "building",
-  "cityscape",
-  "architecture",
-  "street",
-  "lights",
-  "downtown",
-  "bridge",
+const websiteExamples = [
+  {
+    title: "ענבל טיפוח ויופי",
+    url: "https://preview--inbal-touch-design.lovable.app/",
+    category: "דף נחיתה",
+    image: "https://picsum.photos/400/600?beauty"
+  },
+  {
+    title: "אתר עסקי מקצועי",
+    url: "#",
+    category: "אתר עסקי",
+    image: "https://picsum.photos/400/600?business"
+  },
+  {
+    title: "דף נחיתה למכירות",
+    url: "#",
+    category: "דף נחיתה",
+    image: "https://picsum.photos/400/600?sales"
+  },
+  {
+    title: "אתר תיק עבודות",
+    url: "#",
+    category: "תיק עבודות",
+    image: "https://picsum.photos/400/600?portfolio"
+  },
+  {
+    title: "אתר מסעדה",
+    url: "#",
+    category: "אתר עסקי",
+    image: "https://picsum.photos/400/600?restaurant"
+  },
+  {
+    title: "דף נחיתה לאירועים",
+    url: "#",
+    category: "דף נחיתה",
+    image: "https://picsum.photos/400/600?events"
+  }
 ]
 
 const duration = 0.15
@@ -84,17 +106,17 @@ const Carousel = memo(
   ({
     handleClick,
     controls,
-    cards,
+    examples,
     isCarouselActive,
   }: {
-    handleClick: (imgUrl: string, index: number) => void
+    handleClick: (example: any, index: number) => void
     controls: any
-    cards: string[]
+    examples: any[]
     isCarouselActive: boolean
   }) => {
     const isScreenSizeSm = useMediaQuery("(max-width: 640px)")
     const cylinderWidth = isScreenSizeSm ? 1100 : 1800
-    const faceCount = cards.length
+    const faceCount = examples.length
     const faceWidth = cylinderWidth / faceCount
     const radius = cylinderWidth / (2 * Math.PI)
     const rotation = useMotionValue(0)
@@ -105,7 +127,7 @@ const Carousel = memo(
 
     return (
       <div
-        className="flex h-full items-center justify-center bg-mauve-dark-2"
+        className="flex h-full items-center justify-center"
         style={{
           perspective: "1000px",
           transformStyle: "preserve-3d",
@@ -139,28 +161,36 @@ const Carousel = memo(
           }
           animate={controls}
         >
-          {cards.map((imgUrl, i) => (
+          {examples.map((example, i) => (
             <motion.div
-              key={`key-${imgUrl}-${i}`}
-              className="absolute flex h-full origin-center items-center justify-center rounded-xl bg-mauve-dark-2 p-2"
+              key={`key-${example.title}-${i}`}
+              className="absolute flex h-full origin-center items-center justify-center rounded-xl bg-white shadow-lg p-2"
               style={{
                 width: `${faceWidth}px`,
                 transform: `rotateY(${
                   i * (360 / faceCount)
                 }deg) translateZ(${radius}px)`,
               }}
-              onClick={() => handleClick(imgUrl, i)}
+              onClick={() => handleClick(example, i)}
             >
-              <motion.img
-                src={imgUrl}
-                alt={`keyword_${i} ${imgUrl}`}
-                layoutId={`img-${imgUrl}`}
-                className="pointer-events-none  w-full rounded-xl object-cover aspect-square"
-                initial={{ filter: "blur(4px)" }}
-                layout="position"
-                animate={{ filter: "blur(0px)" }}
-                transition={transition}
-              />
+              <div className="relative w-full h-full">
+                <motion.img
+                  src={example.image}
+                  alt={example.title}
+                  layoutId={`img-${example.title}`}
+                  className="pointer-events-none w-full h-full rounded-lg object-cover"
+                  initial={{ filter: "blur(4px)" }}
+                  layout="position"
+                  animate={{ filter: "blur(0px)" }}
+                  transition={transition}
+                />
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-3 rounded-b-lg">
+                  <span className="inline-block bg-custom-purple text-white text-xs px-2 py-1 rounded-full mb-1">
+                    {example.category}
+                  </span>
+                  <h3 className="text-white text-sm font-bold">{example.title}</h3>
+                </div>
+              </div>
             </motion.div>
           ))}
         </motion.div>
@@ -169,70 +199,96 @@ const Carousel = memo(
   }
 )
 
-const hiddenMask = `repeating-linear-gradient(to right, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 30px, rgba(0,0,0,1) 30px, rgba(0,0,0,1) 30px)`
-const visibleMask = `repeating-linear-gradient(to right, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 0px, rgba(0,0,0,1) 0px, rgba(0,0,0,1) 30px)`
 function ThreeDPhotoCarousel() {
-  const [activeImg, setActiveImg] = useState<string | null>(null)
+  const [activeExample, setActiveExample] = useState<any>(null)
   const [isCarouselActive, setIsCarouselActive] = useState(true)
   const controls = useAnimation()
-  const cards = useMemo(
-    () => keywords.map((keyword) => `https://picsum.photos/200/300?${keyword}`),
-    []
-  )
+  const examples = useMemo(() => websiteExamples, [])
 
   useEffect(() => {
-    console.log("Cards loaded:", cards)
-  }, [cards])
+    console.log("Website examples loaded:", examples)
+  }, [examples])
 
-  const handleClick = (imgUrl: string) => {
-    setActiveImg(imgUrl)
+  const handleClick = (example: any) => {
+    setActiveExample(example)
     setIsCarouselActive(false)
     controls.stop()
   }
 
   const handleClose = () => {
-    setActiveImg(null)
+    setActiveExample(null)
     setIsCarouselActive(true)
+  }
+
+  const handleViewSite = (e: React.MouseEvent) => {
+    e.stopPropagation()
+    if (activeExample?.url && activeExample.url !== "#") {
+      window.open(activeExample.url, "_blank")
+    }
   }
 
   return (
     <motion.div layout className="relative">
       <AnimatePresence mode="sync">
-        {activeImg && (
+        {activeExample && (
           <motion.div
             initial={{ opacity: 0, scale: 0 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0 }}
-            layoutId={`img-container-${activeImg}`}
+            layoutId={`img-container-${activeExample.title}`}
             layout="position"
             onClick={handleClose}
-            className="fixed inset-0 bg-black bg-opacity-10 flex items-center justify-center z-50 m-5 md:m-36 lg:mx-[19rem] rounded-3xl"
+            className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 p-5"
             style={{ willChange: "opacity" }}
             transition={transitionOverlay}
           >
-            <motion.img
-              layoutId={`img-${activeImg}`}
-              src={activeImg}
-              className="max-w-full max-h-full rounded-lg shadow-lg"
-              initial={{ scale: 0.5 }} // Start with a smaller scale
-              animate={{ scale: 1 }} // Animate to full scale
-              transition={{
-                delay: 0.5,
-                duration: 0.5,
-                ease: [0.25, 0.1, 0.25, 1],
-              }} // Clean ease-out curve
-              style={{
-                willChange: "transform",
-              }}
-            />
+            <div className="bg-white rounded-lg p-6 max-w-md w-full mx-4" onClick={(e) => e.stopPropagation()}>
+              <motion.img
+                layoutId={`img-${activeExample.title}`}
+                src={activeExample.image}
+                className="w-full h-48 object-cover rounded-lg mb-4"
+                initial={{ scale: 0.5 }}
+                animate={{ scale: 1 }}
+                transition={{
+                  delay: 0.2,
+                  duration: 0.3,
+                  ease: [0.25, 0.1, 0.25, 1],
+                }}
+                style={{
+                  willChange: "transform",
+                }}
+              />
+              <div className="mb-3">
+                <span className="inline-block bg-custom-purple text-white text-xs px-2 py-1 rounded-full mb-2">
+                  {activeExample.category}
+                </span>
+                <h3 className="text-lg font-bold text-custom-purple mb-2">{activeExample.title}</h3>
+              </div>
+              <div className="flex gap-2">
+                {activeExample.url !== "#" && (
+                  <button
+                    onClick={handleViewSite}
+                    className="bg-custom-purple text-white px-4 py-2 rounded text-sm hover:bg-opacity-90 transition-colors"
+                  >
+                    צפה באתר
+                  </button>
+                )}
+                <button
+                  onClick={handleClose}
+                  className="border border-gray-300 text-gray-700 px-4 py-2 rounded text-sm hover:bg-gray-50 transition-colors"
+                >
+                  סגור
+                </button>
+              </div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
-      <div className="relative h-[500px] w-full overflow-hidden">
+      <div className="relative h-[400px] w-full overflow-hidden rounded-lg">
         <Carousel
           handleClick={handleClick}
           controls={controls}
-          cards={cards}
+          examples={examples}
           isCarouselActive={isCarouselActive}
         />
       </div>

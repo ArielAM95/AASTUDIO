@@ -61,26 +61,26 @@ const LivePreviewCarousel = () => {
       } else {
         api.scrollTo(0);
       }
-    }, 4000); // Scroll every 4 seconds
+    }, 5000); // Scroll every 5 seconds
 
     return () => clearInterval(autoScroll);
   }, [api]);
 
   return (
-    <section className="py-16 px-4 bg-gradient-to-br from-purple-50 to-turquoise-50">
-      <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-custom-purple mb-4 font-rubik">
+    <section className="py-12 px-4 bg-gradient-to-br from-purple-50 to-turquoise-50">
+      <div className="container mx-auto max-w-5xl">
+        <div className="text-center mb-8">
+          <h2 className="text-2xl font-bold text-custom-purple mb-3 font-rubik">
             דוגמאות מעבודות שלנו
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            צפו בדוגמאות של אתרים ודפי נחיתה שיצרנו ללקוחות שלנו - כולם מעוצבים בקפידה ומותאמים למובייל
+          <p className="text-gray-600 max-w-xl mx-auto">
+            צפו בדוגמאות של אתרים ודפי נחיתה שיצרנו ללקוחות שלנו
           </p>
         </div>
 
         <Carousel
           setApi={setApi}
-          className="w-full max-w-5xl mx-auto"
+          className="w-full max-w-4xl mx-auto"
           opts={{
             align: "start",
             loop: true,
@@ -88,47 +88,62 @@ const LivePreviewCarousel = () => {
         >
           <CarouselContent className="-ml-2 md:-ml-4">
             {exampleSites.map((site, index) => (
-              <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
-                <Card className="bg-white shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
-                  <CardContent className="p-0">
-                    {/* Mobile frame container */}
-                    <div className="relative mx-auto w-full max-w-[280px] bg-gray-900 rounded-[2.5rem] p-2 shadow-xl">
+              <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/4">
+                <Card className="bg-white shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden h-full">
+                  <CardContent className="p-0 flex flex-col h-full">
+                    {/* Mobile frame container - made smaller */}
+                    <div className="relative mx-auto w-full max-w-[160px] bg-gray-900 rounded-xl p-1.5 shadow-lg">
                       {/* Mobile screen */}
-                      <div className="bg-white rounded-[2rem] overflow-hidden relative" style={{ aspectRatio: '9/19.5' }}>
+                      <div className="bg-white rounded-lg overflow-hidden relative" style={{ aspectRatio: '9/16' }}>
                         {/* Status bar */}
-                        <div className="h-6 bg-gray-100 flex items-center justify-center">
-                          <div className="flex space-x-1">
-                            <div className="w-1 h-1 bg-gray-400 rounded-full"></div>
-                            <div className="w-1 h-1 bg-gray-400 rounded-full"></div>
-                            <div className="w-1 h-1 bg-gray-400 rounded-full"></div>
+                        <div className="h-3 bg-gray-100 flex items-center justify-center">
+                          <div className="flex space-x-0.5">
+                            <div className="w-0.5 h-0.5 bg-gray-400 rounded-full"></div>
+                            <div className="w-0.5 h-0.5 bg-gray-400 rounded-full"></div>
+                            <div className="w-0.5 h-0.5 bg-gray-400 rounded-full"></div>
                           </div>
                         </div>
                         
-                        {/* Website iframe */}
-                        <div className="h-full relative">
-                          <iframe
-                            src={site.url}
-                            className="w-full h-full border-0 pointer-events-none"
-                            title={site.title}
-                            style={{ transform: 'scale(0.4)', transformOrigin: 'top left', width: '250%', height: '250%' }}
-                          />
+                        {/* Website preview */}
+                        <div className="h-full relative bg-gradient-to-br from-purple-100 to-turquoise-100">
+                          {site.url.includes('inbal-touch-design') ? (
+                            <iframe
+                              src={site.url}
+                              className="w-full h-full border-0 pointer-events-none"
+                              title={site.title}
+                              style={{ 
+                                transform: 'scale(0.25)', 
+                                transformOrigin: 'top left', 
+                                width: '400%', 
+                                height: '400%' 
+                              }}
+                              loading="lazy"
+                            />
+                          ) : (
+                            <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-custom-purple/20 to-custom-turquoise/20">
+                              <div className="text-center p-2">
+                                <div className="w-8 h-8 bg-custom-purple/30 rounded mx-auto mb-1"></div>
+                                <div className="text-xs text-gray-600">דוגמה</div>
+                              </div>
+                            </div>
+                          )}
                           {/* Overlay to prevent interaction */}
                           <div className="absolute inset-0 bg-transparent"></div>
                         </div>
                       </div>
                     </div>
 
-                    {/* Card info */}
-                    <div className="p-6">
+                    {/* Card info - made more compact */}
+                    <div className="p-4 flex-1 flex flex-col">
                       <div className="mb-2">
-                        <span className="inline-block bg-custom-purple text-white text-xs px-2 py-1 rounded-full">
+                        <span className="inline-block bg-custom-purple text-white text-xs px-2 py-0.5 rounded-full">
                           {site.category}
                         </span>
                       </div>
-                      <h3 className="text-xl font-bold text-custom-purple mb-2 font-rubik">
+                      <h3 className="text-sm font-bold text-custom-purple mb-2 font-rubik leading-tight">
                         {site.title}
                       </h3>
-                      <p className="text-gray-600 mb-4 text-sm leading-relaxed">
+                      <p className="text-gray-600 mb-3 text-xs leading-relaxed flex-1">
                         {site.description}
                       </p>
                       <a
@@ -139,10 +154,11 @@ const LivePreviewCarousel = () => {
                       >
                         <Button 
                           variant="outline" 
-                          className="w-full border-custom-purple text-custom-purple hover:bg-custom-purple hover:text-white transition-colors"
+                          size="sm"
+                          className="w-full border-custom-purple text-custom-purple hover:bg-custom-purple hover:text-white transition-colors text-xs"
                         >
-                          צפה באתר המלא
-                          <ExternalLink size={16} className="mr-2" />
+                          צפה באתר
+                          <ExternalLink size={12} className="mr-1" />
                         </Button>
                       </a>
                     </div>
@@ -151,12 +167,12 @@ const LivePreviewCarousel = () => {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
+          <CarouselPrevious className="hidden md:flex" />
+          <CarouselNext className="hidden md:flex" />
         </Carousel>
 
-        <div className="text-center mt-8">
-          <p className="text-gray-600 mb-4">
+        <div className="text-center mt-6">
+          <p className="text-gray-600 mb-3 text-sm">
             רוצים לראות איך האתר שלכם יכול להיראות?
           </p>
           <a
@@ -164,7 +180,7 @@ const LivePreviewCarousel = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Button className="bg-custom-purple hover:bg-opacity-90 text-white font-medium px-8 py-3">
+            <Button className="bg-custom-purple hover:bg-opacity-90 text-white font-medium px-6 py-2 text-sm">
               בואו נתחיל לעבוד!
             </Button>
           </a>

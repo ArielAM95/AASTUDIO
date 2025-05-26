@@ -66,6 +66,52 @@ const LivePreviewCarousel = () => {
     return () => clearInterval(autoScroll);
   }, [api]);
 
+  const renderMobilePreview = (site: ExampleSite) => {
+    if (site.url.includes('inbal-touch-design')) {
+      return (
+        <iframe
+          src={site.url}
+          className="w-full h-full border-0 pointer-events-none"
+          title={site.title}
+          style={{ 
+            transform: 'scale(0.2)', 
+            transformOrigin: 'top left', 
+            width: '500%', 
+            height: '500%' 
+          }}
+          loading="lazy"
+        />
+      );
+    }
+    
+    // Mock content for other examples
+    return (
+      <div className="w-full h-full bg-gradient-to-br from-purple-100 to-blue-100 p-2">
+        <div className="bg-white rounded-lg p-2 mb-2 shadow-sm">
+          <div className="h-1 bg-custom-purple rounded mb-1"></div>
+          <div className="h-1 bg-gray-200 rounded mb-1"></div>
+          <div className="h-1 bg-gray-200 rounded w-3/4"></div>
+        </div>
+        <div className="bg-white rounded-lg p-2 mb-2 shadow-sm">
+          <div className="h-8 bg-gradient-to-r from-custom-purple to-custom-turquoise rounded mb-1"></div>
+        </div>
+        <div className="grid grid-cols-2 gap-1">
+          <div className="bg-white rounded p-1">
+            <div className="h-4 bg-gray-200 rounded"></div>
+          </div>
+          <div className="bg-white rounded p-1">
+            <div className="h-4 bg-gray-200 rounded"></div>
+          </div>
+        </div>
+        <div className="absolute bottom-2 left-2 right-2">
+          <div className="bg-custom-purple text-white text-center py-1 rounded text-xs">
+            {site.category}
+          </div>
+        </div>
+      </div>
+    );
+  };
+
   return (
     <section className="py-12 px-4 bg-gradient-to-br from-purple-50 to-turquoise-50">
       <div className="container mx-auto max-w-5xl">
@@ -88,15 +134,15 @@ const LivePreviewCarousel = () => {
         >
           <CarouselContent className="-ml-2 md:-ml-4">
             {exampleSites.map((site, index) => (
-              <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/4">
+              <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
                 <Card className="bg-white shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden h-full">
                   <CardContent className="p-0 flex flex-col h-full">
-                    {/* Mobile frame container - made smaller */}
-                    <div className="relative mx-auto w-full max-w-[160px] bg-gray-900 rounded-xl p-1.5 shadow-lg">
+                    {/* Mobile frame container - even smaller */}
+                    <div className="relative mx-auto w-full max-w-[120px] bg-gray-900 rounded-lg p-1 shadow-lg">
                       {/* Mobile screen */}
-                      <div className="bg-white rounded-lg overflow-hidden relative" style={{ aspectRatio: '9/16' }}>
+                      <div className="bg-white rounded-md overflow-hidden relative" style={{ aspectRatio: '9/16' }}>
                         {/* Status bar */}
-                        <div className="h-3 bg-gray-100 flex items-center justify-center">
+                        <div className="h-2 bg-gray-100 flex items-center justify-center">
                           <div className="flex space-x-0.5">
                             <div className="w-0.5 h-0.5 bg-gray-400 rounded-full"></div>
                             <div className="w-0.5 h-0.5 bg-gray-400 rounded-full"></div>
@@ -105,36 +151,16 @@ const LivePreviewCarousel = () => {
                         </div>
                         
                         {/* Website preview */}
-                        <div className="h-full relative bg-gradient-to-br from-purple-100 to-turquoise-100">
-                          {site.url.includes('inbal-touch-design') ? (
-                            <iframe
-                              src={site.url}
-                              className="w-full h-full border-0 pointer-events-none"
-                              title={site.title}
-                              style={{ 
-                                transform: 'scale(0.25)', 
-                                transformOrigin: 'top left', 
-                                width: '400%', 
-                                height: '400%' 
-                              }}
-                              loading="lazy"
-                            />
-                          ) : (
-                            <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-custom-purple/20 to-custom-turquoise/20">
-                              <div className="text-center p-2">
-                                <div className="w-8 h-8 bg-custom-purple/30 rounded mx-auto mb-1"></div>
-                                <div className="text-xs text-gray-600">דוגמה</div>
-                              </div>
-                            </div>
-                          )}
+                        <div className="h-full relative">
+                          {renderMobilePreview(site)}
                           {/* Overlay to prevent interaction */}
                           <div className="absolute inset-0 bg-transparent"></div>
                         </div>
                       </div>
                     </div>
 
-                    {/* Card info - made more compact */}
-                    <div className="p-4 flex-1 flex flex-col">
+                    {/* Card info - more compact */}
+                    <div className="p-3 flex-1 flex flex-col">
                       <div className="mb-2">
                         <span className="inline-block bg-custom-purple text-white text-xs px-2 py-0.5 rounded-full">
                           {site.category}
@@ -158,7 +184,7 @@ const LivePreviewCarousel = () => {
                           className="w-full border-custom-purple text-custom-purple hover:bg-custom-purple hover:text-white transition-colors text-xs"
                         >
                           צפה באתר
-                          <ExternalLink size={12} className="mr-1" />
+                          <ExternalLink size={10} className="mr-1" />
                         </Button>
                       </a>
                     </div>

@@ -4,27 +4,27 @@ import { HoverPeek } from "@/components/ui/link-preview";
 const ExamplesSection = () => {
   const examples = [
     {
-      title: "דף נחיתה ממוקד",
-      description: "דף נחיתה יעיל שממיר מבקרים ללקוחות פוטנציאליים",
-      url: "https://example-landing.com",
+      title: "ענבל טיפוח ויופי",
+      description: "דף נחיתה מהמם מושך וצבעוני שמותאם לקהל נשי ומיועד לעודד פניה בוואטסאפ",
+      url: "https://preview--inbal-touch-design.lovable.app/",
       linkText: "ראה דוגמה חיה"
     },
     {
-      title: "אתר עסקי מקצועי",
-      description: "אתר מלא לעסק עם ניהול תוכן ופונקציונליות מתקדמת",
-      url: "https://example-business.com",
+      title: "דף מבצע שיווקי",
+      description: "דף נחיתה ממוקד למבצע שיווקי מיוחד, עם טופס לאיסוף לידים",
+      url: "https://review.ofair.co.il",
       linkText: "ראה דוגמה חיה"
     },
     {
-      title: "אפליקציית ווב",
-      description: "אפליקציה מתקדמת עם ממשק משתמש אינטואיטיבי",
-      url: "https://example-app.com",
+      title: "דף עסקי לשירותים",
+      description: "דף נחיתה להצגת שירותים עסקיים עם קריאה לפעולה ברורה",
+      url: "https://biz.ofair.co.il",
       linkText: "ראה דוגמה חיה"
     },
     {
-      title: "חנות דיגיטלית",
-      description: "פלטפורמת מכירות מקוונת עם מערכת תשלומים מאובטחת",
-      url: "https://example-ecommerce.com", 
+      title: "אתר מסחרי לתעופה",
+      description: "אתר מודרני ומותאם למובייל עם מערכת הצעות מחיר מתקדמת",
+      url: "https://preview--airfq-aero-bid-nexus.lovable.app/",
       linkText: "ראה דוגמה חיה"
     }
   ];

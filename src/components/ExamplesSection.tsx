@@ -72,7 +72,7 @@ const ExamplesSection = () => {
                   newVisible[index] = true;
                   return newVisible;
                 });
-              }, index * 150); // Staggered animation
+              }, index * 150);
             }
           }
         });
@@ -107,7 +107,8 @@ const ExamplesSection = () => {
           <div className="w-24 h-1 bg-gradient-to-r from-custom-purple to-custom-turquoise mx-auto mt-6 rounded-full"></div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Desktop Layout - Grid */}
+        <div className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {examples.map((example, index) => {
             const IconComponent = example.icon;
             return (
@@ -124,7 +125,6 @@ const ExamplesSection = () => {
                   perspective: '1000px'
                 }}
               >
-                {/* 3D Card container */}
                 <div className="relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover:rotate-x-2 group-hover:scale-105 overflow-hidden">
                   
                   {/* Gradient header with icon */}
@@ -192,6 +192,125 @@ const ExamplesSection = () => {
 
                 {/* Floating elements on hover */}
                 <div className="absolute -inset-2 bg-gradient-to-r from-custom-purple/20 to-custom-turquoise/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-500 -z-10 blur-xl"></div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Mobile Layout - Card Style with 16:9 Aspect Ratio */}
+        <div className="md:hidden space-y-6">
+          {examples.map((example, index) => {
+            const IconComponent = example.icon;
+            return (
+              <div
+                key={index}
+                ref={el => cardsRef.current[index] = el}
+                className={`group relative transform transition-all duration-700 ${
+                  visibleCards[index] 
+                    ? 'translate-y-0 opacity-100 scale-100' 
+                    : 'translate-y-8 opacity-0 scale-95'
+                }`}
+                style={{ 
+                  transitionDelay: `${index * 100}ms`
+                }}
+              >
+                <div className="relative bg-white rounded-3xl shadow-xl overflow-hidden mx-4">
+                  
+                  {/* Header with title and description */}
+                  <div className="p-6 pb-4">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className={`p-2 rounded-full bg-gradient-to-r ${example.gradient}`}>
+                        <IconComponent className="w-5 h-5 text-white" />
+                      </div>
+                      <span className="text-xs text-gray-500 font-medium">Live</span>
+                    </div>
+                    
+                    <h3 className="text-2xl font-bold text-gray-900 mb-3 font-rubik">
+                      {example.title}
+                    </h3>
+                    
+                    <p className="text-gray-600 leading-relaxed text-sm">
+                      {example.description}
+                    </p>
+                  </div>
+
+                  {/* 16:9 Preview Container */}
+                  <div className="relative mx-6 mb-6">
+                    <div className="aspect-video rounded-2xl overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 shadow-inner">
+                      <HoverPeek 
+                        url={example.url}
+                        peekWidth={400}
+                        peekHeight={225}
+                      >
+                        <div className="w-full h-full relative group cursor-pointer">
+                          {/* Preview placeholder with gradient */}
+                          <div className={`w-full h-full bg-gradient-to-br ${example.gradient} relative overflow-hidden`}>
+                            
+                            {/* Simulated browser interface */}
+                            <div className="absolute top-3 left-3 right-3 bg-white/90 backdrop-blur-sm rounded-lg p-2">
+                              <div className="flex items-center gap-2">
+                                <div className="flex gap-1">
+                                  <div className="w-2 h-2 bg-red-400 rounded-full"></div>
+                                  <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
+                                  <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                                </div>
+                                <div className="flex-1 bg-gray-100 rounded px-2 py-1">
+                                  <div className="text-xs text-gray-500 truncate">{example.url}</div>
+                                </div>
+                              </div>
+                            </div>
+
+                            {/* Content preview area */}
+                            <div className="absolute bottom-4 left-4 right-4 space-y-2">
+                              <div className="bg-white/20 backdrop-blur-sm rounded-lg p-3 border border-white/30">
+                                <div className="flex items-center gap-2 mb-2">
+                                  <IconComponent className="w-4 h-4 text-white" />
+                                  <div className="text-white text-xs font-medium">תצוגה מקדימה</div>
+                                </div>
+                                <div className="grid grid-cols-3 gap-1">
+                                  <div className="h-2 bg-white/30 rounded"></div>
+                                  <div className="h-2 bg-white/50 rounded"></div>
+                                  <div className="h-2 bg-white/40 rounded"></div>
+                                </div>
+                              </div>
+                            </div>
+
+                            {/* Animated overlay */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            
+                            {/* Play button overlay */}
+                            <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+                              <div className="w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg">
+                                <svg className="w-5 h-5 text-gray-700 mr-0.5" fill="currentColor" viewBox="0 0 24 24">
+                                  <path d="M8 5v14l11-7z"/>
+                                </svg>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </HoverPeek>
+                    </div>
+                  </div>
+
+                  {/* Action buttons */}
+                  <div className="px-6 pb-6">
+                    <a
+                      href={example.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full bg-gradient-to-r from-custom-purple to-custom-turquoise text-white py-3 px-4 rounded-xl font-medium text-center block hover:shadow-lg hover:scale-105 transition-all duration-200"
+                    >
+                      {example.linkText}
+                    </a>
+                  </div>
+
+                  {/* Bottom indicator dots */}
+                  <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex gap-1">
+                    <div className="w-1.5 h-1.5 bg-gray-300 rounded-full"></div>
+                    <div className="w-1.5 h-1.5 bg-custom-purple rounded-full"></div>
+                    <div className="w-1.5 h-1.5 bg-gray-300 rounded-full"></div>
+                  </div>
+                </div>
               </div>
             );
           })}

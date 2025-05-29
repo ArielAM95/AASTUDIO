@@ -36,7 +36,7 @@ const EnhancedHeroSection = () => {
           }}
         />
         <div 
-          className="absolute w-80 h-80 bg-gradient-to-r from-custom-turquoise/20 to-purple-500/20 rounded-full blur-3xl animate-pulse"
+          className="absolute w-80 h-80 bg-gradient-to-r from-custom-turquoise/20 to-custom-purple/20 rounded-full blur-3xl animate-pulse"
           style={{
             right: `${10 + mousePosition.x * 0.015}%`,
             bottom: `${20 + mousePosition.y * 0.015}%`,
@@ -127,7 +127,7 @@ const EnhancedHeroSection = () => {
                 ))}
               </div>
               <span className="text-sm">
-                <span className="text-custom-turquoise font-bold">500+</span> פרויקטים מוצלחים
+                <span className="text-custom-turquoise font-bold">30+</span> פרויקטים מוצלחים
               </span>
             </div>
           </div>
@@ -135,9 +135,9 @@ const EnhancedHeroSection = () => {
           {/* Stats */}
           <div className={`grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 transform transition-all duration-1000 delay-800 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
             {[
-              { number: "24", label: "שעות", desc: "זמן אספקה ממוצע" },
-              { number: "500+", label: "פרויקטים", desc: "הושלמו בהצלחה" },
-              { number: "98%", label: "שביעות רצון", desc: "מהלקוחות שלנו" }
+              { number: "48", label: "שעות", desc: "זמן אספקה ממוצע" },
+              { number: "₪450", label: "החל מ", desc: "לדף נחיתה" },
+              { number: "₪950", label: "אתר תדמית", desc: "מרהיב ומקצועי" }
             ].map((stat, index) => (
               <div key={index} className="text-center group">
                 <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-custom-turquoise/50 transition-all duration-300 hover:bg-white/10">

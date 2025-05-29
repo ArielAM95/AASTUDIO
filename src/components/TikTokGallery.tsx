@@ -1,7 +1,6 @@
 
 import { useState, useRef, useEffect } from "react";
 import { Play, Pause, ExternalLink, Heart, Share, Eye } from "lucide-react";
-import { HoverPeek } from "@/components/ui/link-preview";
 
 interface Project {
   id: number;
@@ -11,7 +10,6 @@ interface Project {
   category: string;
   views: string;
   likes: string;
-  gradient: string;
 }
 
 const TikTokGallery = () => {
@@ -24,62 +22,56 @@ const TikTokGallery = () => {
     {
       id: 1,
       title: "ענבל טיפוח ויופי",
-      description: "דף נחיתה מהמם מושך וצבעוני שמותאם לקהל נשי ומיועד לעודד פניה בוואטסאפ",
+      description: "דף נחיתה אלגנטי לעסק יופי וטיפוח עם עיצוב נשי ומודרן",
       url: "https://preview--inbal-touch-design.lovable.app/",
       category: "דף נחיתה",
       views: "12.5K",
-      likes: "2.3K",
-      gradient: "from-pink-400 via-purple-500 to-blue-500"
+      likes: "2.3K"
     },
     {
       id: 2,
       title: "דף מבצע שיווקי",
-      description: "דף נחיתה ממוקד למבצע שיווקי מיוחד, עם טופס לאיסוף לידים",
+      description: "דף נחיתה ממוקד למבצע עם קריאה לפעולה ברורה ואיסוף לידים",
       url: "https://review.ofair.co.il",
       category: "מבצע",
       views: "8.7K",
-      likes: "1.8K",
-      gradient: "from-orange-400 via-red-500 to-pink-500"
+      likes: "1.8K"
     },
     {
       id: 3,
       title: "דף עסקי לשירותים",
-      description: "דף נחיתה להצגת שירותים עסקיים עם קריאה לפעולה ברורה",
+      description: "דף עסקי מקצועי להצגת שירותים עם טפסי יצירת קשר",
       url: "https://biz.ofair.co.il",
       category: "עסקי",
       views: "15.2K",
-      likes: "3.1K",
-      gradient: "from-blue-400 via-cyan-500 to-teal-500"
+      likes: "3.1K"
     },
     {
       id: 4,
       title: "אתר מסחרי לתעופה",
-      description: "אתר מודרני ומותאם למובייל עם מערכת הצעות מחיר מתקדמת",
+      description: "אתר מתקדם עם מערכת הצעות מחיר ודפי מוצר מורכבים",
       url: "https://preview--airfq-aero-bid-nexus.lovable.app/",
-      category: "מסחרי",
+      category: "אתר מתקדם",
       views: "22.1K",
-      likes: "4.5K",
-      gradient: "from-green-400 via-emerald-500 to-teal-500"
+      likes: "4.5K"
     },
     {
       id: 5,
-      title: "אפליקציה מובייל",
-      description: "ממשק משתמש אינטואיטיבי עם חווית משתמש מעולה למובייל",
+      title: "דף נחיתה טכנולוגי",
+      description: "עיצוב מודרני לחברת טכנולוגיה עם ממשק משתמש חדשני",
       url: "https://preview--inbal-touch-design.lovable.app/",
-      category: "אפליקציה",
+      category: "טכנולוגיה",
       views: "18.9K",
-      likes: "3.7K",
-      gradient: "from-indigo-400 via-purple-500 to-pink-500"
+      likes: "3.7K"
     },
     {
       id: 6,
-      title: "חנות אונליין",
-      description: "פלטפורמת מכירות עם עיצוב מודרני ומערכת תשלומים מאובטחת",
+      title: "אתר תדמית מקצועי",
+      description: "אתר תדמית איכותי לעסק עם גלריית עבודות ודף צוות",
       url: "https://biz.ofair.co.il",
-      category: "חנות",
+      category: "תדמית",
       views: "31.4K",
-      likes: "6.2K",
-      gradient: "from-emerald-400 via-green-500 to-teal-500"
+      likes: "6.2K"
     }
   ];
 
@@ -137,44 +129,37 @@ const TikTokGallery = () => {
               {/* Main video-like container */}
               <div className="relative w-full max-w-sm h-[70vh] rounded-2xl overflow-hidden bg-black shadow-2xl">
                 
-                {/* Background gradient */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-20`}></div>
+                {/* Background gradient with brand colors */}
+                <div className="absolute inset-0 bg-gradient-to-br from-custom-purple/20 to-custom-turquoise/10"></div>
                 
-                {/* Preview area */}
+                {/* Preview area - inline website preview */}
                 <div className="relative h-3/4 overflow-hidden">
-                  <HoverPeek 
-                    url={project.url}
-                    peekWidth={320}
-                    peekHeight={400}
-                  >
-                    <div className="w-full h-full bg-gradient-to-br from-gray-900 to-gray-800 relative cursor-pointer group">
-                      
-                      {/* Simulated website preview */}
-                      <div className="absolute inset-4 bg-white rounded-lg overflow-hidden shadow-lg">
-                        <div className="h-6 bg-gray-100 flex items-center px-2 gap-1">
-                          <div className="w-2 h-2 bg-red-400 rounded-full"></div>
-                          <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
-                          <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-                        </div>
-                        <div className={`h-full bg-gradient-to-br ${project.gradient} relative overflow-hidden`}>
-                          <div className="absolute inset-0 opacity-30">
-                            <div className="grid grid-cols-3 gap-2 p-4">
-                              {[...Array(9)].map((_, i) => (
-                                <div key={i} className="aspect-square bg-white/20 rounded animate-pulse" style={{ animationDelay: `${i * 0.1}s` }}></div>
-                              ))}
-                            </div>
-                          </div>
-                        </div>
+                  <div className="w-full h-full bg-gradient-to-br from-gray-900 to-gray-800 relative cursor-pointer group">
+                    
+                    {/* Embedded website preview */}
+                    <div className="absolute inset-4 bg-white rounded-lg overflow-hidden shadow-lg">
+                      <div className="h-6 bg-gray-100 flex items-center px-2 gap-1">
+                        <div className="w-2 h-2 bg-red-400 rounded-full"></div>
+                        <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
+                        <div className="w-2 h-2 bg-green-400 rounded-full"></div>
                       </div>
+                      
+                      {/* Actual website preview iframe */}
+                      <iframe
+                        src={project.url}
+                        className="w-full h-full border-0 pointer-events-none"
+                        loading="lazy"
+                        title={project.title}
+                      />
+                    </div>
 
-                      {/* Play button overlay */}
-                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <div className="w-16 h-16 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg">
-                          <Play className="w-6 h-6 text-black mr-1" />
-                        </div>
+                    {/* Play button overlay */}
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <div className="w-16 h-16 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg">
+                        <Play className="w-6 h-6 text-black mr-1" />
                       </div>
                     </div>
-                  </HoverPeek>
+                  </div>
                 </div>
 
                 {/* Bottom info section */}
@@ -184,7 +169,7 @@ const TikTokGallery = () => {
                     {/* Left side - project info */}
                     <div className="flex-1">
                       <div className="flex items-center gap-2 mb-2">
-                        <span className="text-xs bg-white/20 text-white px-2 py-1 rounded-full backdrop-blur-sm">
+                        <span className="text-xs bg-custom-purple/20 text-custom-turquoise px-2 py-1 rounded-full backdrop-blur-sm border border-custom-turquoise/30">
                           {project.category}
                         </span>
                       </div>
@@ -201,7 +186,7 @@ const TikTokGallery = () => {
                         href={project.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-white text-sm font-medium hover:text-custom-turquoise transition-colors"
+                        className="inline-flex items-center gap-1 text-custom-turquoise text-sm font-medium hover:text-white transition-colors"
                       >
                         ראה פרויקט
                         <ExternalLink size={14} />
@@ -212,22 +197,22 @@ const TikTokGallery = () => {
                     <div className="flex flex-col items-center gap-4 ml-4">
                       
                       <button className="flex flex-col items-center gap-1 group">
-                        <div className="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/20 group-hover:bg-white/20 transition-all">
-                          <Heart className="w-5 h-5 text-white" />
+                        <div className="w-12 h-12 bg-custom-purple/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-custom-purple/30 group-hover:bg-custom-purple/30 transition-all">
+                          <Heart className="w-5 h-5 text-custom-turquoise" />
                         </div>
                         <span className="text-white text-xs">{project.likes}</span>
                       </button>
 
                       <button className="flex flex-col items-center gap-1 group">
-                        <div className="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/20 group-hover:bg-white/20 transition-all">
-                          <Eye className="w-5 h-5 text-white" />
+                        <div className="w-12 h-12 bg-custom-purple/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-custom-purple/30 group-hover:bg-custom-purple/30 transition-all">
+                          <Eye className="w-5 h-5 text-custom-turquoise" />
                         </div>
                         <span className="text-white text-xs">{project.views}</span>
                       </button>
 
                       <button className="flex flex-col items-center gap-1 group">
-                        <div className="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/20 group-hover:bg-white/20 transition-all">
-                          <Share className="w-5 h-5 text-white" />
+                        <div className="w-12 h-12 bg-custom-purple/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-custom-purple/30 group-hover:bg-custom-purple/30 transition-all">
+                          <Share className="w-5 h-5 text-custom-turquoise" />
                         </div>
                       </button>
                       
@@ -241,7 +226,7 @@ const TikTokGallery = () => {
                     <div
                       key={i}
                       className={`h-1 flex-1 rounded-full transition-all duration-300 ${
-                        i === currentIndex ? 'bg-white' : 'bg-white/30'
+                        i === currentIndex ? 'bg-custom-turquoise' : 'bg-white/30'
                       }`}
                     />
                   ))}
@@ -258,7 +243,7 @@ const TikTokGallery = () => {
               key={index}
               onClick={() => scrollToIndex(index)}
               className={`w-2 h-2 rounded-full transition-all ${
-                currentIndex === index ? 'bg-white w-6' : 'bg-white/50'
+                currentIndex === index ? 'bg-custom-turquoise w-6' : 'bg-white/50'
               }`}
             />
           ))}

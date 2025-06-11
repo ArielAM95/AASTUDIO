@@ -51,7 +51,7 @@ const HeroSection = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               <button onClick={handleContactClick} className="bg-custom-purple hover:bg-opacity-90 text-white font-medium py-4 px-8 rounded-xl flex items-center justify-center gap-2 transition-all shadow-lg hover:shadow-xl hover:scale-105 text-lg">
                 בואו נתחיל עכשיו
-                <ArrowLeft size={20} className="rtl:-rotate-90" />
+                <ArrowLeft size={20} className="rtl:-rotate90" />
               </button>
               <button className="border-2 border-custom-purple text-custom-purple hover:bg-custom-purple hover:text-white font-medium py-4 px-8 rounded-xl transition-all flex items-center justify-center gap-2">
                 ראו דוגמאות

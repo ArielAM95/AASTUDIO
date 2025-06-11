@@ -14,10 +14,10 @@ const BusinessWebsitePage = () => {
   
   const examples = [
     {
-      title: "אתר מסחרי לתעופה",
-      description: "אתר מודרני ומותאם למובייל עם מערכת הצעות מחיר מתקדמת",
-      imageUrl: "https://images.unsplash.com/photo-1569154941061-e231b4725ef1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      linkUrl: "https://preview--airfq-aero-bid-nexus.lovable.app/"
+      title: "אתר להזמנת נופש בסאן מרינו",
+      description: "אתר יפיפה להזמנת מקום בנופש, עם מערכת הזמנות, אוטומציות מלאות ועיצוב יפיפה",
+      imageUrl: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      linkUrl: "https://preview--m-539974.lovable.app/"
     }
   ];
 

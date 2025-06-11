@@ -1,4 +1,3 @@
-
 import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -30,6 +29,12 @@ const FocusedLandingPage = () => {
       description: "דף נחיתה להצגת שירותים עסקיים עם קריאה לפעולה ברורה",
       imageUrl: "https://images.unsplash.com/photo-1534670007418-bc0108e58e5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       linkUrl: "https://biz.ofair.co.il"
+    },
+    {
+      title: "דף נחיתה לאיסוף לידים עסקיים",
+      description: "מופט ישראל בחרו לפנות לחברות הייטק ולהציע מתנות איכותיות לעובדים, דף עם אוטומציות ללידים וקו מובהק להשארת פרטים",
+      imageUrl: "https://images.unsplash.com/photo-1553729459-efe14ef6055d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      linkUrl: "https://preview--moft-tech-gifts.lovable.app/"
     }
   ];
 

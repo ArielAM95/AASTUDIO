@@ -1,4 +1,3 @@
-
 import { HoverPeek } from "@/components/ui/link-preview";
 
 const ExamplesSection = () => {
@@ -16,15 +15,15 @@ const ExamplesSection = () => {
       linkText: "ראה דוגמה חיה"
     },
     {
-      title: "דף עסקי לשירותים",
-      description: "דף נחיתה להצגת שירותים עסקיים עם קריאה לפעולה ברורה",
-      url: "https://biz.ofair.co.il",
+      title: "אתר להזמנת נופש בסאן מרינו",
+      description: "אתר יפיפה להזמנת מקום בנופש, עם מערכת הזמנות, אוטומציות מלאות ועיצוב יפיפה",
+      url: "https://preview--m-539974.lovable.app/",
       linkText: "ראה דוגמה חיה"
     },
     {
-      title: "אתר מסחרי לתעופה",
-      description: "אתר מודרני ומותאם למובייל עם מערכת הצעות מחיר מתקדמת",
-      url: "https://preview--airfq-aero-bid-nexus.lovable.app/",
+      title: "דף נחיתה לאיסוף לידים עסקיים",
+      description: "מופט ישראל בחרו לפנות לחברות הייטק ולהציע מתנות איכותיות לעובדים, דף עם אוטומציות ללידים וקו מובהק להשארת פרטים",
+      url: "https://preview--moft-tech-gifts.lovable.app/",
       linkText: "ראה דוגמה חיה"
     }
   ];

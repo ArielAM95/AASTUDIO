@@ -41,14 +41,11 @@ const HeroSection = () => {
                 <Clock className="text-custom-turquoise" size={20} />
                 <span className="font-semibold text-gray-800">48 שעות</span>
               </div>
-              <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm py-2 rounded-lg shadow-sm px-[4px]">
+              <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm py-2 rounded-lg shadow-sm px-[27px]">
                 <Star className="text-custom-purple" size={20} />
                 <span className="font-semibold text-gray-800">החל מ-490₪</span>
               </div>
-              <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-lg shadow-sm mx-[53px]">
-                <span className="text-2xl">🚀</span>
-                <span className="font-semibold text-gray-800">מוכן לעבודה</span>
-              </div>
+              
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4">

@@ -108,21 +108,3 @@
 .purple-glow {
   box-shadow: 0 0 15px rgba(108, 99, 255, 0.3);
 }
-
-/* TikTok-style scrollbar hide */
-.scrollbar-hide {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
-}
-
-/* Line clamp utility */
-.line-clamp-2 {
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}

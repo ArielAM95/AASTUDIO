@@ -1,5 +1,5 @@
 
-import EnhancedHeroSection from "@/components/EnhancedHeroSection";
+import HeroSection from "@/components/HeroSection";
 import AISection from "@/components/AISection";
 import DigitalAdvertisingSection from "@/components/DigitalAdvertisingSection";
 import Navbar from "@/components/Navbar";
@@ -7,14 +7,14 @@ import ServicesSection from "@/components/ServicesSection";
 import FAQSection from "@/components/FAQSection";
 import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
-import TikTokGallery from "@/components/TikTokGallery";
+import ExamplesSection from "@/components/ExamplesSection";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
       <Navbar />
-      <EnhancedHeroSection />
-      <TikTokGallery />
+      <HeroSection />
+      <ExamplesSection />
       <AISection />
       <DigitalAdvertisingSection />
       <div id="services">

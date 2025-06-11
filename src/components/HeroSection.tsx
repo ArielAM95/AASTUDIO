@@ -26,7 +26,7 @@ const HeroSection = () => {
             
             <h1 className="text-4xl md:text-6xl font-bold text-custom-purple mb-6 font-rubik leading-tight">
               <span className="block">תפסיקו לחלום</span>
-              <span className="block text-custom-turquoise">תתחילו לבנות</span>
+              <span className="block text-indigo-600">תתחילו לבנות</span>
               <span className="block text-2xl md:text-3xl font-normal mt-2">את הדף שיביא לכם לקוחות</span>
             </h1>
             

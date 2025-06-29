@@ -1,5 +1,8 @@
+
 import { HoverPeek } from "@/components/ui/link-preview";
-import { ExternalLink, Globe, Zap, Users, ShoppingCart } from "lucide-react";
+import { ExternalLink, Globe, Zap, Users, ShoppingCart, ArrowLeft } from "lucide-react";
+import { Link } from "react-router-dom";
+
 const ExamplesSection = () => {
   const examples = [{
     title: "ענבל טיפוח ויופי",
@@ -38,13 +41,15 @@ const ExamplesSection = () => {
     icon: ShoppingCart,
     gradient: "from-green-500/10 to-emerald-500/10"
   }];
-  return <section className="py-20 px-4 bg-gradient-to-br from-gray-50 via-white to-gray-50 relative overflow-hidden">
+
+  return (
+    <section className="py-20 px-4 bg-gradient-to-br from-gray-50 via-white to-gray-50 relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-10 left-10 w-72 h-72 bg-custom-purple rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-10 right-10 w-96 h-96 bg-custom-turquoise rounded-full blur-3xl animate-pulse" style={{
-        animationDelay: "2s"
-      }}></div>
+          animationDelay: "2s"
+        }}></div>
       </div>
 
       <div className="container mx-auto max-w-7xl relative z-10">
@@ -64,10 +69,11 @@ const ExamplesSection = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
           {examples.map((example, index) => {
-          const IconComponent = example.icon;
-          return <div key={index} className={`group relative rounded-2xl overflow-hidden bg-gradient-to-br ${example.gradient} backdrop-blur-sm border border-white/20 hover:border-white/40 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl animate-fade-in`} style={{
-            animationDelay: `${index * 0.1}s`
-          }}>
+            const IconComponent = example.icon;
+            return (
+              <div key={index} className={`group relative rounded-2xl overflow-hidden bg-gradient-to-br ${example.gradient} backdrop-blur-sm border border-white/20 hover:border-white/40 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl animate-fade-in`} style={{
+                animationDelay: `${index * 0.1}s`
+              }}>
                 {/* Glassmorphism overlay */}
                 <div className="absolute inset-0 bg-white/60 backdrop-blur-sm"></div>
                 
@@ -107,18 +113,29 @@ const ExamplesSection = () => {
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
                   <div className="absolute inset-0 bg-gradient-to-r from-custom-purple/10 via-transparent to-custom-turquoise/10 rounded-2xl"></div>
                 </div>
-              </div>;
-        })}
+              </div>
+            );
+          })}
         </div>
 
-        {/* Bottom CTA */}
+        {/* Bottom CTA with new button */}
         <div className="text-center mt-16">
-          <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm px-6 py-3 rounded-full shadow-lg border border-gray-200">
-            <span className="text-gray-600 font-medium">רוצים לראות עוד דוגמאות?</span>
-            <button className="text-custom-purple hover:text-custom-purple/80 transition-colors text-base font-bold">צרו קשר עכשיו !</button>
+          <div className="flex flex-col md:flex-row items-center justify-center gap-6">
+            <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm px-6 py-3 rounded-full shadow-lg border border-gray-200">
+              <span className="text-gray-600 font-medium">רוצים לראות עוד דוגמאות?</span>
+            </div>
+            <Link 
+              to="/examples"
+              className="inline-flex items-center gap-3 bg-custom-purple hover:bg-custom-purple/90 text-white font-bold px-8 py-4 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+            >
+              ראו את כל הדוגמאות
+              <ArrowLeft size={20} className="transition-transform group-hover:-translate-x-1" />
+            </Link>
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default ExamplesSection;

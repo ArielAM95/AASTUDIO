@@ -5,6 +5,12 @@ import { Facebook, Instagram } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+
+  // Function to scroll to top when navigating
+  const scrollToTop = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
     <footer className="bg-gray-900 text-white py-10 px-4">
       <div className="container mx-auto max-w-6xl">
@@ -35,12 +41,20 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <Link to="/privacy-policy" className="text-gray-300 hover:text-white transition-colors">
+                <Link 
+                  to="/privacy-policy" 
+                  className="text-gray-300 hover:text-white transition-colors"
+                  onClick={scrollToTop}
+                >
                   מדיניות פרטיות
                 </Link>
               </li>
               <li>
-                <Link to="/terms-of-service" className="text-gray-300 hover:text-white transition-colors">
+                <Link 
+                  to="/terms-of-service" 
+                  className="text-gray-300 hover:text-white transition-colors"
+                  onClick={scrollToTop}
+                >
                   תנאי שימוש
                 </Link>
               </li>
@@ -76,4 +90,5 @@ const Footer = () => {
     </footer>
   );
 };
+
 export default Footer;

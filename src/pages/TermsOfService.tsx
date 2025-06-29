@@ -1,8 +1,11 @@
+
 import React from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+
 const TermsOfService = () => {
-  return <div className="min-h-screen">
+  return (
+    <div className="min-h-screen">
       <Navbar />
       <main className="container mx-auto max-w-4xl py-12 px-4">
         <h1 className="text-3xl font-bold mb-8 font-rubik">תנאי שימוש</h1>
@@ -79,10 +82,12 @@ const TermsOfService = () => {
             <p>טלפון: 054-5308505</p>
           </section>
           
-          <p className="text-sm text-gray-500 mt-8">תאריך עדכון אחרון: 20 במאי, 2025</p>
+          <p className="text-sm text-gray-500 mt-8">תاריך עדכון אחרון: 20 במאי, 2025</p>
         </div>
       </main>
       <Footer />
-    </div>;
+    </div>
+  );
 };
+
 export default TermsOfService;

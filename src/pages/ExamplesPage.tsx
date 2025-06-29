@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { ExternalLink, Globe, Zap, Users, ShoppingCart, Filter } from "lucide-react";
+import { ExternalLink, Globe, Zap, Users, ShoppingCart, Filter, Smartphone } from "lucide-react";
 import { HoverPeek } from "@/components/ui/link-preview";
 import ContactForm from "@/components/ContactForm";
 import Navbar from "@/components/Navbar";
@@ -53,6 +53,28 @@ const ExamplesPage = () => {
       icon: ShoppingCart,
       gradient: "from-green-500/10 to-emerald-500/10",
       image: "/placeholder.svg"
+    },
+    {
+      title: "אפליקציית ניהול תעופה",
+      description: "אפליקציה לניהול הצעות מחיר ולוגיסטיקה בתחום התעופה עם ממשק מתקדם וחווית משתמש מעולה",
+      url: "https://preview--airfq-aero-bid-nexus.lovable.app/",
+      linkText: "ראה דוגמה חיה",
+      category: "אפליקציה עסקית",
+      categoryColor: "bg-indigo-500",
+      icon: Smartphone,
+      gradient: "from-indigo-500/10 to-purple-500/10",
+      image: "/placeholder.svg"
+    },
+    {
+      title: "אפליקציית שירות לקוחות",
+      description: "אפליקציה לניהול פניות לקוחות וטיפול בבקשות שירות עם מערכת ניהול מתקדמת ואוטומציות",
+      url: "https://ofair.co.il",
+      linkText: "ראה דוגמה חיה",
+      category: "אפליקציה עסקית",
+      categoryColor: "bg-indigo-500",
+      icon: Smartphone,
+      gradient: "from-indigo-500/10 to-purple-500/10",
+      image: "/placeholder.svg"
     }
   ];
 
@@ -60,6 +82,7 @@ const ExamplesPage = () => {
     { id: 'all', name: 'כל הדוגמאות', count: examples.length },
     { id: 'דף נחיתה', name: 'דפי נחיתה', count: examples.filter(ex => ex.category === 'דף נחיתה').length },
     { id: 'אתר עסקי', name: 'אתרים עסקיים', count: examples.filter(ex => ex.category === 'אתר עסקי').length },
+    { id: 'אפליקציה עסקית', name: 'אפליקציות עסקיות', count: examples.filter(ex => ex.category === 'אפליקציה עסקית').length },
     { id: 'מבצע', name: 'דפי מבצעים', count: examples.filter(ex => ex.category === 'מבצע').length },
     { id: 'B2B', name: 'פתרונות B2B', count: examples.filter(ex => ex.category === 'B2B').length }
   ];

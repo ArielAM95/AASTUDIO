@@ -85,6 +85,9 @@ const Navbar = () => {
             >
               שירותים
             </a>
+            <Link to="/examples" className="text-gray-700 hover:text-custom-purple font-medium transition-colors" onClick={scrollToTop}>
+              דוגמאות
+            </Link>
             <Link to="/focused-landing-page" className="text-gray-700 hover:text-custom-purple font-medium transition-colors" onClick={scrollToTop}>
               דף נחיתה מעוצב
             </Link>
@@ -130,6 +133,16 @@ const Navbar = () => {
               >
                 שירותים
               </a>
+              <Link
+                to="/examples"
+                className="text-gray-700 hover:text-custom-purple font-medium py-2 transition-colors"
+                onClick={() => {
+                  scrollToTop();
+                  toggleMenu();
+                }}
+              >
+                דוגמאות
+              </Link>
               <Link
                 to="/focused-landing-page"
                 className="text-gray-700 hover:text-custom-purple font-medium py-2 transition-colors"

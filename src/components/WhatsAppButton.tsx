@@ -13,11 +13,11 @@ const WhatsAppButton = () => {
     <div className="fixed bottom-6 right-6 z-50">
       <button
         onClick={handleWhatsAppClick}
-        className="bg-green-500 hover:bg-green-600 text-white rounded-full p-4 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 animate-pulse"
+        className="bg-green-500 hover:bg-green-600 text-white rounded-full p-4 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110"
         title="צרו קשר בווצאפ"
       >
         <img 
-          src="/lovable-uploads/009364ae-1b0c-4271-a068-88cc03111697.png" 
+          src="/lovable-uploads/f2cfdeae-6414-4d7f-b84a-5563778e83d1.png" 
           alt="WhatsApp" 
           className="w-8 h-8"
         />
